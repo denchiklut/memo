@@ -21,9 +21,9 @@ struct Settings: View {
             .background(Color("MenuColor"))
             .border(width: 0.4, edges: [.top, .bottom], color: Color("BorderColor"))
             
-            ForEach(1 ..< 3) { index in
+            ForEach(items, id: \.self) { item in
                 HStack {
-                    Text("Label \(index)")
+                    Text(item)
                         .padding(.vertical, 4)
                     Spacer()
                 }
@@ -34,6 +34,11 @@ struct Settings: View {
         }
     }
 }
+
+let items = [
+    "Востановить покупки",
+    "Поддержать"
+]
 
 struct Settings_Previews: PreviewProvider {
     static var previews: some View {

@@ -14,11 +14,9 @@ struct Profile: View {
                 StrechyHeader(image: "denchiklut")
                     .zIndex(1)
                     
-                    Settings()
+                Settings()
                 
-                    ForEach(1...10, id: \.self) { index in
-                        Text("\(index)")
-                    }
+                Text("График статичтики")
                     .padding(.top)
             }
         }
