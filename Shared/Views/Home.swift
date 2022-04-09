@@ -18,8 +18,18 @@ struct HomeView: View {
     var body: some View {
         TabView(selection: $currentTub) {
             Profile()
-                .tabItem { Image(systemName: "person") }.tag(1)
-            Color.orange.tabItem { Image(systemName: "brain.head.profile") }.tag(2)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "person")
+                        Text("Home")
+                    }
+                }.tag(1)
+            Color.orange.tabItem {
+                VStack {
+                    Image(systemName: "brain.head.profile")
+                    Text("Lern")
+                }
+            }.tag(2)
         }
         .background(Color("BackgroundColor"))
         .edgesIgnoringSafeArea(.all)

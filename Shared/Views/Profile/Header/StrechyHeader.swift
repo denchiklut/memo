@@ -41,6 +41,8 @@ struct StrechyHeader: View {
                                 }
                                 .offset(y: getSafeArea().bottom == 0 ? 5 : 15)
                             )
+                            .border(width: 0.4, edges: [.bottom], color: Color("BorderColor")
+                                .opacity(Double(-minY / getRect().width)))
                             .offset(y: minY < 0 ? -minY : 0)
                             .opacity(Double(-minY / getRect().width))
                     }
@@ -48,6 +50,7 @@ struct StrechyHeader: View {
                 )
             }
             .frame(height: getRect().width)
+            .offset(y: -getSafeArea().top)
             .zIndex(1)
             
             
@@ -77,9 +80,13 @@ struct StrechyHeader: View {
                     })
                 }
             }
-            .padding()
-            .border(width: 0.4, edges: [.bottom], color: Color("BorderColor"))
+            .padding(.horizontal)
+            .padding(.vertical, 12)
             .background(Color("MenuColor"))
+            .border(width: 0.4, edges: [.bottom], color: Color("BorderColor"))
+            .offset(y: -getSafeArea().top)
+            .padding(.bottom, -getSafeArea().top)
+        
         }
     }
     
@@ -92,10 +99,11 @@ struct StrechyHeader_Previews: PreviewProvider {
                 StrechyHeader(image: "denchiklut")
                     .zIndex(1)
                     
-                    ForEach(1...20, id: \.self) { index in
-                        Text("\(index)")
-                    }
-                    .padding(.top)
+                ForEach(1...20, id: \.self) { index in
+                    Text("\(index)")
+                }
+                .padding(.top)
+           
             }
         }
         .background(Color("BackgroundColor"))
