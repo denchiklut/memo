@@ -21,12 +21,13 @@
 		5250E1402801727B003D53C2 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250E13E2801727B003D53C2 /* View.swift */; };
 		5250E14328017381003D53C2 /* Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250E14228017381003D53C2 /* Border.swift */; };
 		5250E14428017381003D53C2 /* Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250E14228017381003D53C2 /* Border.swift */; };
-		5250E14628017AFF003D53C2 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250E14528017AFF003D53C2 /* Temp.swift */; };
-		5250E14728017AFF003D53C2 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250E14528017AFF003D53C2 /* Temp.swift */; };
 		5250E14F280188F2003D53C2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250E14E280188F2003D53C2 /* Settings.swift */; };
 		5250E152280228ED003D53C2 /* Learn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250E151280228ED003D53C2 /* Learn.swift */; };
 		5250E1542802296C003D53C2 /* AppNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250E1532802296C003D53C2 /* AppNav.swift */; };
-		5250E15728022C94003D53C2 /* LearnHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250E15628022C94003D53C2 /* LearnHeader.swift */; };
+		5250E15A280315E8003D53C2 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250E159280315E8003D53C2 /* Levels.swift */; };
+		5250E15E28031CD1003D53C2 /* AppHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250E15D28031CD1003D53C2 /* AppHeader.swift */; };
+		5250E16128032319003D53C2 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250E16028032319003D53C2 /* Level.swift */; };
+		5250E16428032B10003D53C2 /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250E16328032B10003D53C2 /* Words.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,11 +41,13 @@
 		5250E13B280170B2003D53C2 /* StrechyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrechyHeader.swift; sourceTree = "<group>"; };
 		5250E13E2801727B003D53C2 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		5250E14228017381003D53C2 /* Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Border.swift; sourceTree = "<group>"; };
-		5250E14528017AFF003D53C2 /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
 		5250E14E280188F2003D53C2 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		5250E151280228ED003D53C2 /* Learn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Learn.swift; sourceTree = "<group>"; };
 		5250E1532802296C003D53C2 /* AppNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNav.swift; sourceTree = "<group>"; };
-		5250E15628022C94003D53C2 /* LearnHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnHeader.swift; sourceTree = "<group>"; };
+		5250E159280315E8003D53C2 /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
+		5250E15D28031CD1003D53C2 /* AppHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeader.swift; sourceTree = "<group>"; };
+		5250E16028032319003D53C2 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		5250E16328032B10003D53C2 /* Words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,7 @@
 				5250E13A28017090003D53C2 /* Shared */,
 				5250E14828018790003D53C2 /* Profile */,
 				5250E150280228D3003D53C2 /* Learn */,
+				5250E16228032AE7003D53C2 /* Words */,
 				5250E119280169FE003D53C2 /* Home.swift */,
 			);
 			path = Views;
@@ -116,8 +120,8 @@
 		5250E13A28017090003D53C2 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				5250E14528017AFF003D53C2 /* Temp.swift */,
-				5250E1532802296C003D53C2 /* AppNav.swift */,
+				5250E15C28031CBA003D53C2 /* AppHeader */,
+				5250E15B28031CAA003D53C2 /* AppNav */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -160,18 +164,51 @@
 		5250E150280228D3003D53C2 /* Learn */ = {
 			isa = PBXGroup;
 			children = (
-				5250E15528022C77003D53C2 /* Header */,
+				5250E15F28032309003D53C2 /* Level */,
+				5250E158280315D5003D53C2 /* Levels */,
 				5250E151280228ED003D53C2 /* Learn.swift */,
 			);
 			path = Learn;
 			sourceTree = "<group>";
 		};
-		5250E15528022C77003D53C2 /* Header */ = {
+		5250E158280315D5003D53C2 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
-				5250E15628022C94003D53C2 /* LearnHeader.swift */,
+				5250E159280315E8003D53C2 /* Levels.swift */,
 			);
-			path = Header;
+			path = Levels;
+			sourceTree = "<group>";
+		};
+		5250E15B28031CAA003D53C2 /* AppNav */ = {
+			isa = PBXGroup;
+			children = (
+				5250E1532802296C003D53C2 /* AppNav.swift */,
+			);
+			path = AppNav;
+			sourceTree = "<group>";
+		};
+		5250E15C28031CBA003D53C2 /* AppHeader */ = {
+			isa = PBXGroup;
+			children = (
+				5250E15D28031CD1003D53C2 /* AppHeader.swift */,
+			);
+			path = AppHeader;
+			sourceTree = "<group>";
+		};
+		5250E15F28032309003D53C2 /* Level */ = {
+			isa = PBXGroup;
+			children = (
+				5250E16028032319003D53C2 /* Level.swift */,
+			);
+			path = Level;
+			sourceTree = "<group>";
+		};
+		5250E16228032AE7003D53C2 /* Words */ = {
+			isa = PBXGroup;
+			children = (
+				5250E16328032B10003D53C2 /* Words.swift */,
+			);
+			path = Words;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,15 +309,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5250E14628017AFF003D53C2 /* Temp.swift in Sources */,
 				5250E12A28016A06003D53C2 /* Home.swift in Sources */,
 				5250E152280228ED003D53C2 /* Learn.swift in Sources */,
 				5250E14F280188F2003D53C2 /* Settings.swift in Sources */,
-				5250E15728022C94003D53C2 /* LearnHeader.swift in Sources */,
+				5250E15E28031CD1003D53C2 /* AppHeader.swift in Sources */,
 				5250E14328017381003D53C2 /* Border.swift in Sources */,
+				5250E15A280315E8003D53C2 /* Levels.swift in Sources */,
+				5250E16128032319003D53C2 /* Level.swift in Sources */,
 				5250E13C280170B2003D53C2 /* StrechyHeader.swift in Sources */,
 				5250E13F2801727B003D53C2 /* View.swift in Sources */,
 				5250E1542802296C003D53C2 /* AppNav.swift in Sources */,
+				5250E16428032B10003D53C2 /* Words.swift in Sources */,
 				5250E13728016F12003D53C2 /* Profile.swift in Sources */,
 				5250E12828016A06003D53C2 /* MemoApp.swift in Sources */,
 			);
@@ -290,7 +329,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5250E14728017AFF003D53C2 /* Temp.swift in Sources */,
 				5250E12B28016A06003D53C2 /* Home.swift in Sources */,
 				5250E14428017381003D53C2 /* Border.swift in Sources */,
 				5250E13D280170B2003D53C2 /* StrechyHeader.swift in Sources */,

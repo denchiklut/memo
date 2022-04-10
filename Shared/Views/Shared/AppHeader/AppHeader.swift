@@ -1,13 +1,13 @@
 //
-//  LearnHeader.swift
+//  AppHeader.swift
 //  Memo (iOS)
 //
-//  Created by Denis Aleksandrov on 4/9/22.
+//  Created by Denis Aleksandrov on 4/10/22.
 //
 
 import SwiftUI
 
-struct LearnHeader: View {
+struct AppHeader: View {
     var body: some View {
         Color("MenuColor")
             .frame(height: 110)
@@ -25,8 +25,12 @@ struct LearnHeader: View {
     }
 }
 
-struct LearnHeader_Previews: PreviewProvider {
+struct AppHeader_Previews: PreviewProvider {
     static var previews: some View {
-        LearnHeader()
+        VStack {
+            AppHeader()
+            Spacer()
+        }
+        .ignoresSafeArea()
     }
 }
