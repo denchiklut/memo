@@ -13,38 +13,42 @@ struct Words: View {
             Color("BackgroundColor")
             AppHeader()
             
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(spacing: 0) {
-                    ForEach(1...20, id:\.self) { index in
-                        HStack {
-                            Circle()
-                                .fill(Color.gray.opacity(0.05))
-                                .overlay(Text("\(index)")
-                                    .foregroundColor(.gray))
-                                .font(.footnote)
-                                .frame(width: 30)
-                            VStack(alignment: .leading) {
-                                Text("Item \(index)")
-                                    .foregroundColor(.primary)
-                                Text("Subtitle")
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-                            }
-                     
-                            Spacer()
-                            
-                            Button(action: {}) {
-                                Image(systemName: "plus")
-                            }
-                        }
-                        .padding()
-                        .border(width: 0.4, edges: [.bottom], color: Color("BorderColor"))
+            List {
+                ForEach(1...25, id:\.self) { index in
+                    HStack {
+                        Circle()
+                            .fill(Color.gray.opacity(0.05))
+                            .overlay(Text("\(index)")
+                            .foregroundColor(.gray))
+                            .font(.footnote)
+                            .frame(width: 30)
                         
+                        VStack(alignment: .leading) {
+                            Text("Item \(index)")
+                                .foregroundColor(.primary)
+                            Text("Subtitle")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
                     }
-                  
+                    .listRowBackground(Color.clear)
+                    .listSectionSeparator(.hidden)
+                    .padding(.vertical, 8)
+                    .swipeActions {
+                          Button (action: {}) {
+                              Image(systemName: "trash")
+                          }
+                          .tint(Color.red)
+                        }
                 }
-                .padding(.bottom, 210)
             }
+            .onAppear {
+                UITableView.appearance().backgroundColor = .clear
+                UITableView.appearance().showsVerticalScrollIndicator = false
+            }
+            .listStyle(.plain)
+            .padding(.bottom, 193)
+            .background(.clear)
             .offset(y: 110)
         }
         .ignoresSafeArea()
@@ -53,6 +57,6 @@ struct Words: View {
 
 struct Words_Previews: PreviewProvider {
     static var previews: some View {
-        Words()
+        HomeView()
     }
 }

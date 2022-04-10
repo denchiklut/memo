@@ -20,7 +20,7 @@ struct AppHeader: View {
                 }
                 .offset(y: 15)
             )
-            .border(width: 0.4, edges: [.top, .bottom], color: Color("BorderColor"))
+            .border(width: 0.4, edges: [.bottom], color: Color("BorderColor"))
             .zIndex(1)
     }
 }

@@ -13,7 +13,7 @@ enum Tabs {
 
 struct HomeView: View {
     @AppStorage("darkMode") var darkMode: Bool = true
-    @State var currentTub: Tabs = .trainging
+    @State var currentTub: Tabs = .words
     
     var body: some View {
         AppNav {
