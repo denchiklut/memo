@@ -14,10 +14,36 @@ struct Words: View {
             AppHeader()
             
             ScrollView(.vertical, showsIndicators: false) {
-                VStack {
-                    Text("Hello, World!")
+                VStack(spacing: 0) {
+                    ForEach(1...20, id:\.self) { index in
+                        HStack {
+                            Circle()
+                                .fill(Color.gray.opacity(0.05))
+                                .overlay(Text("\(index)")
+                                    .foregroundColor(.gray))
+                                .font(.footnote)
+                                .frame(width: 30)
+                            VStack(alignment: .leading) {
+                                Text("Item \(index)")
+                                    .foregroundColor(.primary)
+                                Text("Subtitle")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                     
+                            Spacer()
+                            
+                            Button(action: {}) {
+                                Image(systemName: "plus")
+                            }
+                        }
+                        .padding()
+                        .border(width: 0.4, edges: [.bottom], color: Color("BorderColor"))
+                        
+                    }
+                  
                 }
-                .padding()
+                .padding(.bottom, 210)
             }
             .offset(y: 110)
         }
