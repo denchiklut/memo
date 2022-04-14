@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct Settings: View {
-    @AppStorage("darkMode") var darkMode: Bool = false
+    @AppStorage("darkMode") var darkMode = false
+    @State var isOpen = false
     
     var body: some View {
         VStack(spacing: 20) {
             HStack {
-                Button(action: {}) {
+                Button(action: {
+                    isOpen.toggle()
+                }) {
                     Text("Study kanguage")
                     Spacer()
                     Text("English")
@@ -26,6 +29,10 @@ struct Settings: View {
             .frame(maxWidth: .infinity)
             .background(Color("PaperColor"))
             .border(width: 0.4, edges: [.top, .bottom], color: Color("BorderColor"))
+            .halfSheet(isPresented: $isOpen) {
+                Language()
+            }
+
             
             VStack(spacing: 0) {
                 HStack {
@@ -58,6 +65,8 @@ let items = [
 
 struct Settings_Previews: PreviewProvider {
     static var previews: some View {
-        Settings()
+        NavigationView {
+            Settings()
+        }
     }
 }

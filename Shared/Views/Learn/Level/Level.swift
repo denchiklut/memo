@@ -24,9 +24,11 @@ struct Level: View {
                                     Button(action: {}, label: {
                                         Text("Вариант \(index)")
                                     })
-                                        .padding()
-                                        .frame(width: getRect().width)
-                                            .border(width: 0.4, edges: [.top], color: Color("BorderColor"))
+                                   
+                                    .padding()
+                                    .frame(width: getRect().width)
+                                    .border(width: 0.4, edges: [.top], color: Color("BorderColor"))
+                                    .tint(.primary)
                                 }
                             }
                         }

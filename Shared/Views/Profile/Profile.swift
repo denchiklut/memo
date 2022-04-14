@@ -27,6 +27,7 @@ struct Profile: View {
 struct Profile_Previews: PreviewProvider {
     static var previews: some View {
         Profile()
+            .accentColor(.pink)
             .previewInterfaceOrientation(.portrait)
     }
 }

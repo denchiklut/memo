@@ -29,6 +29,8 @@
 		5250E15E28031CD1003D53C2 /* AppHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250E15D28031CD1003D53C2 /* AppHeader.swift */; };
 		5250E16128032319003D53C2 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250E16028032319003D53C2 /* Level.swift */; };
 		5250E16428032B10003D53C2 /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250E16328032B10003D53C2 /* Words.swift */; };
+		526ACC5F28086B6B008BE039 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526ACC5E28086B6B008BE039 /* Language.swift */; };
+		526ACC62280870F3008BE039 /* HalfSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526ACC61280870F3008BE039 /* HalfSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		5250E15D28031CD1003D53C2 /* AppHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeader.swift; sourceTree = "<group>"; };
 		5250E16028032319003D53C2 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		5250E16328032B10003D53C2 /* Words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
+		526ACC5E28086B6B008BE039 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		526ACC61280870F3008BE039 /* HalfSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,7 @@
 		5250E13A28017090003D53C2 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				526ACC60280870DD008BE039 /* HalfSheet */,
 				5240D3DC2807428F0050B6EF /* BlurView */,
 				5250E15C28031CBA003D53C2 /* AppHeader */,
 				5250E15B28031CAA003D53C2 /* AppNav */,
@@ -149,6 +154,7 @@
 		5250E14828018790003D53C2 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				526ACC5D28086B4F008BE039 /* Language */,
 				5250E14D280188E1003D53C2 /* Settings */,
 				5250E149280187A0003D53C2 /* Header */,
 				5250E13628016F12003D53C2 /* Profile.swift */,
@@ -220,6 +226,22 @@
 				5250E16328032B10003D53C2 /* Words.swift */,
 			);
 			path = Words;
+			sourceTree = "<group>";
+		};
+		526ACC5D28086B4F008BE039 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				526ACC5E28086B6B008BE039 /* Language.swift */,
+			);
+			path = Language;
+			sourceTree = "<group>";
+		};
+		526ACC60280870DD008BE039 /* HalfSheet */ = {
+			isa = PBXGroup;
+			children = (
+				526ACC61280870F3008BE039 /* HalfSheet.swift */,
+			);
+			path = HalfSheet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,6 +348,7 @@
 				5250E14F280188F2003D53C2 /* Settings.swift in Sources */,
 				5250E15E28031CD1003D53C2 /* AppHeader.swift in Sources */,
 				5250E14328017381003D53C2 /* Border.swift in Sources */,
+				526ACC5F28086B6B008BE039 /* Language.swift in Sources */,
 				5250E15A280315E8003D53C2 /* Levels.swift in Sources */,
 				5250E16128032319003D53C2 /* Level.swift in Sources */,
 				5250E13C280170B2003D53C2 /* StrechyHeader.swift in Sources */,
@@ -333,6 +356,7 @@
 				5250E1542802296C003D53C2 /* AppNav.swift in Sources */,
 				5250E16428032B10003D53C2 /* Words.swift in Sources */,
 				5250E13728016F12003D53C2 /* Profile.swift in Sources */,
+				526ACC62280870F3008BE039 /* HalfSheet.swift in Sources */,
 				5250E12828016A06003D53C2 /* MemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
