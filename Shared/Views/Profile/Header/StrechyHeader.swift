@@ -26,7 +26,7 @@ struct StrechyHeader: View {
                                 LinearGradient(colors: [.black.opacity(0.5), .clear], startPoint: .top, endPoint: .center)
                             )
                         
-                        Color("MenuColor")
+                        Color("PaperColor")
                             .frame(height: getSafeArea().bottom == 0 ? 80 : 110)
                             .overlay(
                                 VStack(alignment: .center, spacing: 6) {
@@ -82,7 +82,7 @@ struct StrechyHeader: View {
             }
             .padding(.horizontal)
             .padding(.vertical, 12)
-            .background(Color("MenuColor"))
+            .background(Color("PaperColor"))
             .border(width: 0.4, edges: [.bottom], color: Color("BorderColor"))
             .offset(y: -getSafeArea().top)
             .padding(.bottom, -getSafeArea().top)

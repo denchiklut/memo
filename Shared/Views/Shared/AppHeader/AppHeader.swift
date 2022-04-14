@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AppHeader: View {
     var body: some View {
-        Color("MenuColor")
+        Color("NavBarColor")
             .frame(height: 110)
             .overlay(
                 HStack(spacing: 6){
@@ -20,16 +20,18 @@ struct AppHeader: View {
                 }
                 .offset(y: 15)
             )
-            .border(width: 0.4, edges: [.top, .bottom], color: Color("BorderColor"))
+            .border(width: 0.4, edges: [.bottom], color: Color(.separator))
             .zIndex(1)
     }
 }
 
 struct AppHeader_Previews: PreviewProvider {
     static var previews: some View {
-        VStack {
-            AppHeader()
-            Spacer()
+        ZStack(alignment: .top) {
+            VStack {
+                AppHeader()
+                Spacer()
+            }
         }
         .ignoresSafeArea()
     }

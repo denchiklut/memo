@@ -6,22 +6,77 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct Words: View {
+    @State var search = ""
+    @AppStorage("darkMode") var darkMode: Bool = false
+    @State private var selection: String?
+    
+    init() {
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = darkMode
+        ? UIColor(cgColor: CGColor(red: 18/255, green: 18/255, blue: 18/255, alpha: 0.9))
+        : UIColor(cgColor: CGColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 0.9))
+        appearance.shadowColor = UIColor.systemGray4
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        
+        UITableView.appearance().showsVerticalScrollIndicator = false
+    }
+    
     var body: some View {
-        ZStack(alignment: .top) {
-            Color("BackgroundColor")
-            AppHeader()
-            
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack {
-                    Text("Hello, World!")
+        NavigationView {
+            List(selection: $selection) {
+                ForEach(1...25, id:\.self) { index in
+                    HStack {
+                        Circle()
+                            .fill(Color.gray.opacity(0.05))
+                            .overlay(Text("\(index)")
+                            .foregroundColor(.gray))
+                            .font(.footnote)
+                            .frame(width: 30)
+                        
+                        VStack(alignment: .leading) {
+                            Text("Item \(index)")
+                                .foregroundColor(.primary)
+                            Text("Subtitle")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    .listSectionSeparator(.hidden)
+                    .padding(.vertical, 8)
+                    .swipeActions {
+                          Button (action: {}) {
+                              Image(systemName: "trash")
+                          }
+                          .tint(Color.red)
+                        }
                 }
-                .padding()
+                .onDelete { index in
+                    
+                }
             }
-            .offset(y: 110)
+            .navigationTitle("Dictionary")
+            .searchable(text: $search, placement: .navigationBarDrawer(displayMode: .automatic))
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {}) {
+                        Image(systemName: "plus")
+                   }
+
+                }
+            }
+            .listStyle(.plain)
         }
-        .ignoresSafeArea()
     }
 }
 

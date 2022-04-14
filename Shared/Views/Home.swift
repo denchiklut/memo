@@ -22,18 +22,22 @@ struct HomeView: View {
                     .tabItem {
                         Image(systemName: "person")
                         Text("Home")
-                    }.tag(Tabs.profile)
+                    }
+                    .tag(Tabs.profile)
                 Learn()
                     .tabItem {
                         Image(systemName: "brain.head.profile")
                         Text("Lern")
-                    }.tag(Tabs.trainging)
+                    }
+                    .tag(Tabs.trainging)
                 Words()
                     .tabItem {
                         Image(systemName: "text.book.closed.fill")
                         Text("Words")
-                    }.tag(Tabs.words)
+                    }
+                    .tag(Tabs.words)
             }
+            .accentColor(.pink)
         }
         .background(Color("BackgroundColor"))
         .edgesIgnoringSafeArea(.all)
