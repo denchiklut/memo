@@ -11,33 +11,49 @@ struct Settings: View {
     @AppStorage("darkMode") var darkMode: Bool = false
     
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 20) {
             HStack {
-                Toggle(isOn: $darkMode) {
-                    Text("Dark mode")
+                Button(action: {}) {
+                    Text("Study kanguage")
+                    Spacer()
+                    Text("English")
+                        .foregroundColor(.secondary)
                 }
+                .padding(.vertical, 4)
+                
             }
             .padding()
-            .background(Color("MenuColor"))
+            .frame(maxWidth: .infinity)
+            .background(Color("PaperColor"))
             .border(width: 0.4, edges: [.top, .bottom], color: Color("BorderColor"))
             
-            ForEach(items, id: \.self) { item in
+            VStack(spacing: 0) {
                 HStack {
-                    Text(item)
-                        .padding(.vertical, 4)
-                    Spacer()
+                    Toggle(isOn: $darkMode) {
+                        Text("Dark mode")
+                    }
                 }
                 .padding()
-                .background(Color("MenuColor"))
-                .border(width: 0.4, edges: [.bottom], color: Color("BorderColor"))
+                .background(Color("PaperColor"))
+                .border(width: 0.4, edges: [.top, .bottom], color: Color("BorderColor"))
+                
+                ForEach(items, id: \.self) { item in
+                    HStack {
+                        Text(item)
+                            .padding(.vertical, 4)
+                        Spacer()
+                    }
+                    .padding()
+                    .background(Color("PaperColor"))
+                    .border(width: 0.4, edges: [.bottom], color: Color("BorderColor"))
+                }
             }
         }
     }
 }
 
 let items = [
-    "Востановить покупки",
-    "Поддержать"
+    "Востановить покупки"
 ]
 
 struct Settings_Previews: PreviewProvider {

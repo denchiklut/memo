@@ -13,7 +13,7 @@ struct Level: View {
             AppHeader()
             
             VStack {
-                Color("MenuColor")
+                Color("PaperColor")
                     .overlay(
                         VStack {
                             Spacer()
