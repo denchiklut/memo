@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Language: View {
     @State var selected = 0
+    @Binding var isPromted: Bool
     
     var body: some View {
         VStack(spacing: 20) {
@@ -52,7 +53,9 @@ struct Language: View {
 
             Spacer()
                    
-            Button(action: {}) {
+            Button(action: {
+                isPromted.toggle()
+            }) {
                 Text("Save")
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 6)
@@ -69,7 +72,7 @@ struct Language: View {
 let langs = ["Enflish", "Franch"]
 struct Language_Previews: PreviewProvider {
     static var previews: some View {
-        Language()
+        Language(isPromted: .constant(false))
 //            .preferredColorScheme(.dark)
     }
 }

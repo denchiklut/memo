@@ -31,6 +31,9 @@
 		5250E16428032B10003D53C2 /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250E16328032B10003D53C2 /* Words.swift */; };
 		526ACC5F28086B6B008BE039 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526ACC5E28086B6B008BE039 /* Language.swift */; };
 		526ACC62280870F3008BE039 /* HalfSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526ACC61280870F3008BE039 /* HalfSheet.swift */; };
+		526ACC652809DF1B008BE039 /* OffsetTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526ACC642809DF1B008BE039 /* OffsetTabView.swift */; };
+		526ACC672809E394008BE039 /* TabsHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526ACC662809E394008BE039 /* TabsHero.swift */; };
+		526ACC692809E50E008BE039 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526ACC682809E50E008BE039 /* TabsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +57,9 @@
 		5250E16328032B10003D53C2 /* Words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
 		526ACC5E28086B6B008BE039 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		526ACC61280870F3008BE039 /* HalfSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfSheet.swift; sourceTree = "<group>"; };
+		526ACC642809DF1B008BE039 /* OffsetTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetTabView.swift; sourceTree = "<group>"; };
+		526ACC662809E394008BE039 /* TabsHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsHero.swift; sourceTree = "<group>"; };
+		526ACC682809E50E008BE039 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +140,7 @@
 		5250E13A28017090003D53C2 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				526ACC632809DEEA008BE039 /* TabHero */,
 				526ACC60280870DD008BE039 /* HalfSheet */,
 				5240D3DC2807428F0050B6EF /* BlurView */,
 				5250E15C28031CBA003D53C2 /* AppHeader */,
@@ -244,6 +251,16 @@
 			path = HalfSheet;
 			sourceTree = "<group>";
 		};
+		526ACC632809DEEA008BE039 /* TabHero */ = {
+			isa = PBXGroup;
+			children = (
+				526ACC642809DF1B008BE039 /* OffsetTabView.swift */,
+				526ACC662809E394008BE039 /* TabsHero.swift */,
+				526ACC682809E50E008BE039 /* TabsView.swift */,
+			);
+			path = TabHero;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -348,12 +365,15 @@
 				5250E14F280188F2003D53C2 /* Settings.swift in Sources */,
 				5250E15E28031CD1003D53C2 /* AppHeader.swift in Sources */,
 				5250E14328017381003D53C2 /* Border.swift in Sources */,
+				526ACC652809DF1B008BE039 /* OffsetTabView.swift in Sources */,
 				526ACC5F28086B6B008BE039 /* Language.swift in Sources */,
 				5250E15A280315E8003D53C2 /* Levels.swift in Sources */,
+				526ACC692809E50E008BE039 /* TabsView.swift in Sources */,
 				5250E16128032319003D53C2 /* Level.swift in Sources */,
 				5250E13C280170B2003D53C2 /* StrechyHeader.swift in Sources */,
 				5250E13F2801727B003D53C2 /* View.swift in Sources */,
 				5250E1542802296C003D53C2 /* AppNav.swift in Sources */,
+				526ACC672809E394008BE039 /* TabsHero.swift in Sources */,
 				5250E16428032B10003D53C2 /* Words.swift in Sources */,
 				5250E13728016F12003D53C2 /* Profile.swift in Sources */,
 				526ACC62280870F3008BE039 /* HalfSheet.swift in Sources */,

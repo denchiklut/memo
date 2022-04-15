@@ -82,7 +82,7 @@ struct Levels: View {
 
     @ViewBuilder
     func cell(header: String, image: String) -> some View {
-        NavigationLink(destination: Level()) {
+        NavigationLink(destination: TabsView()) {
             VStack {
                 Text(header)
                     .font(.subheadline)

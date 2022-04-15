@@ -30,7 +30,7 @@ struct Settings: View {
             .background(Color("PaperColor"))
             .border(width: 0.4, edges: [.top, .bottom], color: Color("BorderColor"))
             .halfSheet(isPresented: $isOpen) {
-                Language()
+                Language(isPromted: $isOpen)
             }
 
             
