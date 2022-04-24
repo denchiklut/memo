@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct AppHeader: View {
+    @AppStorage("darkMode") var darkMode = false
+    
     var body: some View {
-        Color("NavBarColor")
+        Color.clear
+            .background(darkMode
+                        ? .ultraThickMaterial
+                        : .ultraThinMaterial
+            )
             .frame(height: 110)
             .overlay(
-                HStack(spacing: 6){
+                HStack(spacing: 6) {
                     Text("Memo")
                         .fontWeight(.semibold)
                         .padding(.top, 10)

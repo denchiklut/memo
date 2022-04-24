@@ -8,43 +8,30 @@
 import SwiftUI
 
 struct Level: View {
+    @State var current = 0
+    
+    func onAnswer() {
+        current = current + 1
+    }
+    
     var body: some View {
         VStack(spacing: 0) {
             AppHeader()
+         
+            PageView(
+                currentPage: $current,
+                pages: arr.map { LevelCell(index: $0) {
+                    onAnswer()
+                } }
+            )
             
-            VStack {
-                Color("PaperColor")
-                    .overlay(
-                        VStack {
-                            Spacer()
-                            Text("Hi there")
-                            Spacer()
-                            VStack(spacing: 0) {
-                                ForEach(1...4, id:\.self) { index in
-                                    Button(action: {}, label: {
-                                        Text("Вариант \(index)")
-                                    })
-                                   
-                                    .padding()
-                                    .frame(width: getRect().width)
-                                    .border(width: 0.4, edges: [.top], color: Color("BorderColor"))
-                                    .tint(.primary)
-                                }
-                            }
-                        }
-                    )
-            }
-            .cornerRadius(10)
-            .clipped()
-            .shadow(color: .black.opacity(0.05), radius: 7, x: 0, y: 4)
-            .padding(.top)
-            .padding(.horizontal)
-            .padding(.bottom, 120)
         }
         .background(Color("BackgroundColor"))
         .edgesIgnoringSafeArea(.all)
     }
 }
+
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 struct Level_Previews: PreviewProvider {
     static var previews: some View {
