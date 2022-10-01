@@ -15,17 +15,12 @@ struct Level: View {
     }
     
     var body: some View {
-        VStack(spacing: 0) {
-            AppHeader()
-         
-            PageView(
-                currentPage: $current,
-                pages: arr.map { LevelCell(index: $0) {
-                    onAnswer()
-                } }
-            )
-            
-        }
+        PageView(
+            currentPage: $current,
+            pages: arr.map { LevelCell(index: $0) {
+                onAnswer()
+            } }
+        )
         .background(Color("BackgroundColor"))
         .edgesIgnoringSafeArea(.all)
     }

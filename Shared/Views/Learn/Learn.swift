@@ -9,7 +9,12 @@ import SwiftUI
 
 struct Learn: View {
     var body: some View {
-        Levels()
+        NavigationView {
+            Levels()
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarTitle("Memo")
+        }
+
     }
 }
 

@@ -12,25 +12,20 @@ struct Levels: View {
         ZStack(alignment: .top) {
             Color("BackgroundColor")
             
-            AppHeader()
-            
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
-                    HStack() {
-                        cell(header: "Text Here", image: "calendar")
-                                    .padding(.top, 110)
-                    }
                     HStack {
                         cell(header: "Word - translation",  image: "cube.transparent")
                         cell(header: "Translation - word",  image: "cube.transparent.fill")
                     }
+                    .padding(.top, 110)
                     HStack {
                         cell(header: "Listening",  image: "airpodsmax")
                         cell(header: "Word - Builder",  image: "rectangle.and.pencil.and.ellipsis")
                     }
                 }
-                .padding()
             }
+            .padding()
         }
         .ignoresSafeArea()
     }

@@ -30,21 +30,12 @@ struct Words: View {
         NavigationView {
             List(selection: $selection) {
                 ForEach(1...25, id:\.self) { index in
-                    HStack {
-                        Circle()
-                            .fill(Color.gray.opacity(0.05))
-                            .overlay(Text("\(index)")
-                            .foregroundColor(.gray))
-                            .font(.footnote)
-                            .frame(width: 30)
-                        
-                        VStack(alignment: .leading) {
-                            Text("Item \(index)")
-                                .foregroundColor(.primary)
-                            Text("Subtitle")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        }
+                    VStack(alignment: .leading) {
+                        Text("Item \(index)")
+                            .foregroundColor(.primary)
+                        Text("Subtitle")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
                     }
                     .listSectionSeparator(.hidden)
                     .padding(.vertical, 8)
@@ -60,7 +51,7 @@ struct Words: View {
                 }
             }
             .navigationTitle("Dictionary")
-            .searchable(text: $search, placement: .navigationBarDrawer(displayMode: .automatic))
+            .searchable(text: $search, placement: .navigationBarDrawer(displayMode: .always))
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
