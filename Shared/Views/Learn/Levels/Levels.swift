@@ -18,7 +18,7 @@ struct Levels: View {
                         cell(header: "Word - translation",  image: "cube.transparent")
                         cell(header: "Translation - word",  image: "cube.transparent.fill")
                     }
-                    .padding(.top, 110)
+                    .padding(.top, 90)
                     HStack {
                         cell(header: "Listening",  image: "airpodsmax")
                         cell(header: "Word - Builder",  image: "rectangle.and.pencil.and.ellipsis")
