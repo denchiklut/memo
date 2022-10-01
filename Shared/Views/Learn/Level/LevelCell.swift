@@ -19,7 +19,7 @@ struct LevelCell: View {
                 .overlay(
                     VStack {
                         Spacer()
-                        Text("Question \(index)")
+                        WordListen()
                         Spacer()
                         VStack(spacing: 0) {
                             ForEach(1...4, id:\.self) { index in

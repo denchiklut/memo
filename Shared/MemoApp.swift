@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
-import Firebase
+//import Firebase
 
 @main
 struct MemoApp: App {
     init() {
-        FirebaseApp.configure()
+//        FirebaseApp.configure()
     }
     
     var body: some Scene {

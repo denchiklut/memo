@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Levels: View {
+struct Trainings: View {
     var body: some View {
         ZStack(alignment: .top) {
             Color("BackgroundColor")
@@ -18,7 +18,7 @@ struct Levels: View {
                         cell(header: "Word - translation",  image: "cube.transparent")
                         cell(header: "Translation - word",  image: "cube.transparent.fill")
                     }
-                    .padding(.top, 90)
+                    .padding(.top, 100)
                     HStack {
                         cell(header: "Listening",  image: "airpodsmax")
                         cell(header: "Word - Builder",  image: "rectangle.and.pencil.and.ellipsis")
@@ -50,9 +50,9 @@ struct Levels: View {
     }
 }
 
-struct Levels_Previews: PreviewProvider {
+struct Trainings_Previews: PreviewProvider {
     static var previews: some View {
-        Levels()
+        Trainings()
             .preferredColorScheme(.dark)
     }
 }

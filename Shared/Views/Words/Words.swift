@@ -22,8 +22,6 @@ struct Words: View {
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().compactAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        
-        UITableView.appearance().showsVerticalScrollIndicator = false
     }
     
     var body: some View {
@@ -51,7 +49,10 @@ struct Words: View {
                 }
             }
             .navigationTitle("Dictionary")
-            .searchable(text: $search, placement: .navigationBarDrawer(displayMode: .always))
+            .searchable(
+                text: $search,
+                placement: .navigationBarDrawer(displayMode: .automatic)
+            )
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
@@ -66,6 +67,7 @@ struct Words: View {
 
                 }
             }
+            .scrollIndicators(.hidden)
             .listStyle(.plain)
         }
     }
