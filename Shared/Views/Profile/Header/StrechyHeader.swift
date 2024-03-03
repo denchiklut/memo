@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct StrechyHeader: View {
+//    @AppStorage("darkMode") var darkMode = false
     var image: String
     
     var body: some View {
@@ -26,7 +27,8 @@ struct StrechyHeader: View {
                                 LinearGradient(colors: [.black.opacity(0.5), .clear], startPoint: .top, endPoint: .center)
                             )
                         
-                        Color("PaperColor")
+                        Color.clear
+                            .background(.thinMaterial)
                             .frame(height: getSafeArea().bottom == 0 ? 80 : 110)
                             .overlay(
                                 VStack(alignment: .center, spacing: 6) {
@@ -107,5 +109,6 @@ struct StrechyHeader_Previews: PreviewProvider {
             }
         }
         .background(Color("BackgroundColor"))
+        .preferredColorScheme(.dark)
     }
 }

@@ -13,11 +13,9 @@ struct Profile: View {
             VStack(spacing: 20) {
                 StrechyHeader(image: "denchiklut")
                     .zIndex(1)
-                    
-                Settings()
                 
-                Text("График статичтики")
-                    .padding(.top)
+                Settings()
+                Stats()
             }
         }
         .background(Color("BackgroundColor"))

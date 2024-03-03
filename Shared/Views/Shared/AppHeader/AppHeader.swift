@@ -7,15 +7,10 @@
 
 import SwiftUI
 
-struct AppHeader: View {
-    @AppStorage("darkMode") var darkMode = false
-    
+struct AppHeader: View {    
     var body: some View {
         Color.clear
-            .background(darkMode
-                        ? .ultraThickMaterial
-                        : .ultraThinMaterial
-            )
+            .background(.thinMaterial)
             .frame(height: 110)
             .overlay(
                 HStack(spacing: 6) {
@@ -40,5 +35,6 @@ struct AppHeader_Previews: PreviewProvider {
             }
         }
         .ignoresSafeArea()
+        .preferredColorScheme(.dark)
     }
 }
