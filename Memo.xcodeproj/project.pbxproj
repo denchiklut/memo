@@ -34,9 +34,6 @@
 		5283C8D22815A1D600AE3E1F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5283C8D12815A1D600AE3E1F /* PageViewController.swift */; };
 		5283C8D62815AEAC00AE3E1F /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5283C8D52815AEAC00AE3E1F /* PageView.swift */; };
 		5283C8D82815B1F000AE3E1F /* LevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5283C8D72815B1F000AE3E1F /* LevelCell.swift */; };
-		52939D1D280F2CB400F9BC5A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 52939D1C280F2CB400F9BC5A /* FirebaseAnalytics */; };
-		52939D1F280F2CB400F9BC5A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 52939D1E280F2CB400F9BC5A /* FirebaseAuth */; };
-		52939D21280F2CB400F9BC5A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 52939D20280F2CB400F9BC5A /* FirebaseFirestore */; };
 		52F6EEDD28E82D9A00A44565 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52F6EEDC28E82D9A00A44565 /* GoogleService-Info.plist */; };
 		52F6EEDE28E82D9A00A44565 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52F6EEDC28E82D9A00A44565 /* GoogleService-Info.plist */; };
 		52F6EEE128E873DF00A44565 /* TranslateWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6EEE028E873DF00A44565 /* TranslateWord.swift */; };
@@ -82,10 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52939D1D280F2CB400F9BC5A /* FirebaseAnalytics in Frameworks */,
-				52939D1F280F2CB400F9BC5A /* FirebaseAuth in Frameworks */,
 				52F6EEEA28E876CA00A44565 /* Liquid in Frameworks */,
-				52939D21280F2CB400F9BC5A /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,9 +304,6 @@
 			);
 			name = "Memo (iOS)";
 			packageProductDependencies = (
-				52939D1C280F2CB400F9BC5A /* FirebaseAnalytics */,
-				52939D1E280F2CB400F9BC5A /* FirebaseAuth */,
-				52939D20280F2CB400F9BC5A /* FirebaseFirestore */,
 				52F6EEE928E876CA00A44565 /* Liquid */,
 			);
 			productName = "Memo (iOS)";
@@ -725,21 +716,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		52939D1C280F2CB400F9BC5A /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 52939D1B280F2CB400F9BC5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		52939D1E280F2CB400F9BC5A /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 52939D1B280F2CB400F9BC5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		52939D20280F2CB400F9BC5A /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 52939D1B280F2CB400F9BC5A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
 		52F6EEE928E876CA00A44565 /* Liquid */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 52F6EEE828E876C900A44565 /* XCRemoteSwiftPackageReference "liquid" */;
