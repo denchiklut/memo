@@ -10,6 +10,8 @@
 		5240D3DE280742AB0050B6EF /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5240D3DD280742AB0050B6EF /* BlurView.swift */; };
 		5245CD392B94A61100B9A75D /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5245CD382B94A61100B9A75D /* Stats.swift */; };
 		5245CD3B2B94A64700B9A75D /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5245CD3A2B94A64700B9A75D /* Date.swift */; };
+		5245CD3D2B94C75600B9A75D /* ChartRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5245CD3C2B94C75600B9A75D /* ChartRange.swift */; };
+		5245CD3F2B94C80600B9A75D /* StatChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5245CD3E2B94C80600B9A75D /* StatChart.swift */; };
 		5250E12828016A06003D53C2 /* MemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250E118280169FE003D53C2 /* MemoApp.swift */; };
 		5250E12928016A06003D53C2 /* MemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250E118280169FE003D53C2 /* MemoApp.swift */; };
 		5250E12A28016A06003D53C2 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250E119280169FE003D53C2 /* Home.swift */; };
@@ -55,6 +57,8 @@
 		5240D3DD280742AB0050B6EF /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		5245CD382B94A61100B9A75D /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		5245CD3A2B94A64700B9A75D /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		5245CD3C2B94C75600B9A75D /* ChartRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRange.swift; sourceTree = "<group>"; };
+		5245CD3E2B94C80600B9A75D /* StatChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatChart.swift; sourceTree = "<group>"; };
 		5250E118280169FE003D53C2 /* MemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoApp.swift; sourceTree = "<group>"; };
 		5250E119280169FE003D53C2 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		5250E11A28016A06003D53C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				5245CD382B94A61100B9A75D /* Stats.swift */,
+				5245CD3C2B94C75600B9A75D /* ChartRange.swift */,
+				5245CD3E2B94C80600B9A75D /* StatChart.swift */,
 			);
 			path = Stats;
 			sourceTree = "<group>";
@@ -458,6 +464,7 @@
 				5250E12A28016A06003D53C2 /* Home.swift in Sources */,
 				5240D3DE280742AB0050B6EF /* BlurView.swift in Sources */,
 				52F6EEE728E8746F00A44565 /* Consts.swift in Sources */,
+				5245CD3D2B94C75600B9A75D /* ChartRange.swift in Sources */,
 				5250E152280228ED003D53C2 /* Learn.swift in Sources */,
 				5250E14F280188F2003D53C2 /* Settings.swift in Sources */,
 				5250E15E28031CD1003D53C2 /* AppHeader.swift in Sources */,
@@ -477,6 +484,7 @@
 				5250E16428032B10003D53C2 /* Words.swift in Sources */,
 				5250E13728016F12003D53C2 /* Profile.swift in Sources */,
 				5245CD392B94A61100B9A75D /* Stats.swift in Sources */,
+				5245CD3F2B94C80600B9A75D /* StatChart.swift in Sources */,
 				526ACC62280870F3008BE039 /* HalfSheet.swift in Sources */,
 				5250E12828016A06003D53C2 /* MemoApp.swift in Sources */,
 				52F6EEE328E873F300A44565 /* WordBuilder.swift in Sources */,
