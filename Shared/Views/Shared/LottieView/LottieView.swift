@@ -8,7 +8,7 @@
 import SwiftUI
 import Lottie
 
-struct ResizableLV: UIViewRepresentable {
+struct LottieView: UIViewRepresentable {
     var lottieView: AnimationView
     var color: SwiftUI.Color = .blue
     
