@@ -14,8 +14,9 @@ struct Profile: View {
                 StrechyHeader(image: "denchiklut")
                     .zIndex(1)
                 
-                Settings()
                 Stats()
+                
+                Settings()
             }
         }
         .background(Color("BackgroundColor"))

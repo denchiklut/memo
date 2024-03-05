@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5240D3DE280742AB0050B6EF /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5240D3DD280742AB0050B6EF /* BlurView.swift */; };
+		524445392B97586500DB2842 /* ChartLegends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524445382B97586500DB2842 /* ChartLegends.swift */; };
+		5244453C2B976D6100DB2842 /* Chip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5244453B2B976D6100DB2842 /* Chip.swift */; };
 		5245CD392B94A61100B9A75D /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5245CD382B94A61100B9A75D /* Stats.swift */; };
 		5245CD3B2B94A64700B9A75D /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5245CD3A2B94A64700B9A75D /* Date.swift */; };
 		5245CD3D2B94C75600B9A75D /* ChartRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5245CD3C2B94C75600B9A75D /* ChartRange.swift */; };
@@ -55,6 +57,8 @@
 
 /* Begin PBXFileReference section */
 		5240D3DD280742AB0050B6EF /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		524445382B97586500DB2842 /* ChartLegends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartLegends.swift; sourceTree = "<group>"; };
+		5244453B2B976D6100DB2842 /* Chip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chip.swift; sourceTree = "<group>"; };
 		5245CD382B94A61100B9A75D /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		5245CD3A2B94A64700B9A75D /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		5245CD3C2B94C75600B9A75D /* ChartRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRange.swift; sourceTree = "<group>"; };
@@ -98,10 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-=======
 				52F6EEED28E9E07800A44565 /* Lottie in Frameworks */,
->>>>>>> 4304cb2125e127f837ac20e66471f0528cec9a47
 				52F6EEEA28E876CA00A44565 /* Liquid in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,12 +125,21 @@
 			path = BlurView;
 			sourceTree = "<group>";
 		};
+		5244453A2B976D5300DB2842 /* Chip */ = {
+			isa = PBXGroup;
+			children = (
+				5244453B2B976D6100DB2842 /* Chip.swift */,
+			);
+			path = Chip;
+			sourceTree = "<group>";
+		};
 		5245CD372B94A5F900B9A75D /* Stats */ = {
 			isa = PBXGroup;
 			children = (
 				5245CD382B94A61100B9A75D /* Stats.swift */,
 				5245CD3C2B94C75600B9A75D /* ChartRange.swift */,
 				5245CD3E2B94C80600B9A75D /* StatChart.swift */,
+				524445382B97586500DB2842 /* ChartLegends.swift */,
 			);
 			path = Stats;
 			sourceTree = "<group>";
@@ -190,6 +200,7 @@
 		5250E13A28017090003D53C2 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				5244453A2B976D5300DB2842 /* Chip */,
 				52F6EEF528E9E8D200A44565 /* LottieView */,
 				5283C8CE2815988C00AE3E1F /* PageView */,
 				526ACC60280870DD008BE039 /* HalfSheet */,
@@ -476,6 +487,7 @@
 				526ACC5F28086B6B008BE039 /* Language.swift in Sources */,
 				5283C8D22815A1D600AE3E1F /* PageViewController.swift in Sources */,
 				5245CD3B2B94A64700B9A75D /* Date.swift in Sources */,
+				5244453C2B976D6100DB2842 /* Chip.swift in Sources */,
 				52F6EEE528E8740E00A44565 /* WordListen.swift in Sources */,
 				52F6EEF728E9E8EE00A44565 /* LottieView.swift in Sources */,
 				5250E15A280315E8003D53C2 /* Trainings.swift in Sources */,
@@ -489,6 +501,7 @@
 				5245CD392B94A61100B9A75D /* Stats.swift in Sources */,
 				5245CD3F2B94C80600B9A75D /* StatChart.swift in Sources */,
 				526ACC62280870F3008BE039 /* HalfSheet.swift in Sources */,
+				524445392B97586500DB2842 /* ChartLegends.swift in Sources */,
 				5250E12828016A06003D53C2 /* MemoApp.swift in Sources */,
 				52F6EEE328E873F300A44565 /* WordBuilder.swift in Sources */,
 			);

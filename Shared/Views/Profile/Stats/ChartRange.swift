@@ -32,6 +32,12 @@ struct ChartRange: View {
                                     y: .value("Learned", stat.learned)
                                 )
                                 .foregroundStyle(.pink.gradient)
+                                
+                                BarMark(
+                                    x: .value("Day", stat.date, unit: .day),
+                                    y: .value("Added", stat.added)
+                                )
+                                .foregroundStyle(.blue.gradient)
                             }
                         }
                         .background(Color("PaperColor"))
@@ -77,7 +83,7 @@ struct ChartRange: View {
                     .fill(LinearGradient(
                         gradient: Gradient(
                             stops: [
-                                .init(color: Color.black.opacity(0.2), location: 0),
+                                .init(color: darkMode ? Color.black.opacity(0.2):  Color.white.opacity(0.6), location: 0),
                                 .init(color: .clear, location: geometry.size.width)
                             ]
                         ),
@@ -92,7 +98,7 @@ struct ChartRange: View {
                         gradient: Gradient(
                             stops: [
                                 .init(color: .clear, location: -geometry.size.width),
-                                .init(color: Color.black.opacity(0.2), location: 0)
+                                .init(color:  darkMode ? Color.black.opacity(0.2):  Color.white.opacity(0.6), location: 0)
                             ]
                         ),
                         startPoint: .leading, endPoint: .trailing)
@@ -139,8 +145,6 @@ struct ChartRange: View {
         }
       
         .frame(height: 40)
-        .padding(.horizontal)
-
    
     }
 }
