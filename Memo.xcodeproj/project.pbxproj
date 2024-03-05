@@ -10,6 +10,7 @@
 		5240D3DE280742AB0050B6EF /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5240D3DD280742AB0050B6EF /* BlurView.swift */; };
 		524445392B97586500DB2842 /* ChartLegends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524445382B97586500DB2842 /* ChartLegends.swift */; };
 		5244453C2B976D6100DB2842 /* Chip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5244453B2B976D6100DB2842 /* Chip.swift */; };
+		5244453E2B977A6800DB2842 /* ProgresStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5244453D2B977A6800DB2842 /* ProgresStat.swift */; };
 		5245CD392B94A61100B9A75D /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5245CD382B94A61100B9A75D /* Stats.swift */; };
 		5245CD3B2B94A64700B9A75D /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5245CD3A2B94A64700B9A75D /* Date.swift */; };
 		5245CD3D2B94C75600B9A75D /* ChartRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5245CD3C2B94C75600B9A75D /* ChartRange.swift */; };
@@ -59,6 +60,7 @@
 		5240D3DD280742AB0050B6EF /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		524445382B97586500DB2842 /* ChartLegends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartLegends.swift; sourceTree = "<group>"; };
 		5244453B2B976D6100DB2842 /* Chip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chip.swift; sourceTree = "<group>"; };
+		5244453D2B977A6800DB2842 /* ProgresStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgresStat.swift; sourceTree = "<group>"; };
 		5245CD382B94A61100B9A75D /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		5245CD3A2B94A64700B9A75D /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		5245CD3C2B94C75600B9A75D /* ChartRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRange.swift; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 		52F6EEF428E9E8A300A44565 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5244453D2B977A6800DB2842 /* ProgresStat.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 			files = (
 				52F6EEE128E873DF00A44565 /* TranslateWord.swift in Sources */,
 				5250E12A28016A06003D53C2 /* Home.swift in Sources */,
+				5244453E2B977A6800DB2842 /* ProgresStat.swift in Sources */,
 				5240D3DE280742AB0050B6EF /* BlurView.swift in Sources */,
 				52F6EEE728E8746F00A44565 /* Consts.swift in Sources */,
 				5245CD3D2B94C75600B9A75D /* ChartRange.swift in Sources */,
