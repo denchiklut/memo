@@ -17,65 +17,77 @@ struct StatChart: View {
 
     
     var body: some View {
-        Chart {
-            RuleMark(y: .value("Avg", 15))
-                .foregroundStyle(.blue)
-                .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
-            
-            ForEach(data) { stat in
-                if showLearnedData {
-                    BarMark(
-                        x: .value("Day", stat.date, unit: .day),
-                        y: .value("Learned", stat.learned)
-                    )
-                    .foregroundStyle(selectedData?.id == stat.id ? Color.green.gradient : Color.pink.gradient)
-                }
+        ZStack(alignment: .top) {
+            Chart {
+                RuleMark(y: .value("Avg", 15))
+                    .foregroundStyle(.blue)
+                    .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
                 
-                if showAddedData {
-                    BarMark(
-                        x: .value("Day", stat.date, unit: .day),
-                        y: .value("Added", stat.added)
-                    )
-                    .foregroundStyle(.blue.gradient)
+                ForEach(data) { stat in
+                    if showLearnedData {
+                        BarMark(
+                            x: .value("Day", stat.date, unit: .day),
+                            y: .value("Learned", stat.learned)
+                        )
+                        .foregroundStyle(.pink.gradient)
+                        .opacity(selectedData == nil ? 1 : selectedData?.id != stat.id ? 0.6:  1)
+                      
+                    }
+                    
+                    if showAddedData {
+                        BarMark(
+                            x: .value("Day", stat.date, unit: .day),
+                            y: .value("Added", stat.added)
+                        )
+                        .foregroundStyle(.blue.gradient)
+                        .opacity(selectedData == nil ? 1 : selectedData?.id != stat.id ? 0.6:  1)
+                    }
+                  
                 }
-              
             }
-        }
-        .chartXAxis {
-            AxisMarks(preset: .aligned) {
-                AxisValueLabel()
+            .chartXAxis {
+                AxisMarks(preset: .aligned) {
+                    AxisValueLabel()
+                }
             }
-        }
-        .chartYAxis {
-            AxisMarks(preset: .aligned, position: .leading)
-        }
-        .frame(height: 180)
-        .chartOverlay { proxy in
-            GeometryReader { geometry in
-                Rectangle()
-                    .fill(Color.clear)
-                    .contentShape(Rectangle())
-                    .gesture(
-                        DragGesture()
-                            .onChanged { value in
-                                let location = value.location
-                                if let date: Date = proxy.value(atX: location.x) {
-                                    selectedData = getValue(for: date, within: data)
+            .chartYAxis {
+                AxisMarks(preset: .aligned, position: .leading)
+            }
+            .frame(height: 180)
+            .chartOverlay { proxy in
+                GeometryReader { geometry in
+                    Rectangle()
+                        .fill(Color.clear)
+                        .contentShape(Rectangle())
+                        .gesture(
+                            DragGesture()
+                                .onChanged { value in
+                                    let location = value.location
+                                    if let date: Date = proxy.value(atX: location.x) {
+                                        selectedData = getValue(for: date, within: data)
+                                    }
                                 }
-                            }
-                            .onEnded { _ in
-                                selectedData = nil
-                            }
-                    )
+                                .onEnded { _ in
+                                    selectedData = nil
+                                }
+                        )
+                }
             }
+            
+            .onChange(of: selectedData) { _ in
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(.success)
+           }
+            
+            // Details View
+             if let selectedStat = selectedData {
+                 Text("Added \(selectedStat.added)")
+                     .padding()
+                     .background(Color.gray.opacity(0.2))
+                     .cornerRadius(10)
+             }
         }
-        // Details View
-         if let selectedStat = selectedData {
-             Text("Added \(selectedStat.added)")
-                 .padding()
-                 .background(Color.gray.opacity(0.2))
-                 .cornerRadius(10)
-         }
+       
     }
 
     // Example function to get a value for a given date from your data array
