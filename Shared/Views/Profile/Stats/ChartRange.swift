@@ -5,12 +5,11 @@
 //  Created by Denis Aleksandrov on 3/3/24.
 //
 
-import SwiftUI
 import Charts
+import SwiftUI
 
 struct ChartRange: View {
     @AppStorage("darkMode") var darkMode = false
-    
     @ObservedObject var statsVM: StatsVM
     
     @State private var initialDragPosition: CGFloat? = nil
@@ -18,7 +17,7 @@ struct ChartRange: View {
     @State private var initialRangeEnd: CGFloat = 0.0
     
     var onRangeChanged: (() -> Void)?
-
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
@@ -44,6 +43,7 @@ struct ChartRange: View {
                 Rectangle()
                     .fill(Color.white.opacity(0.1))
                     .border(width: 2, edges: [.top, .bottom], color: .gray)
+                    .cornerRadius(4)
                     .frame(width: (statsVM.rangeEnd - statsVM.rangeStart) * geometry.size.width, height: 40)
                     .offset(x: statsVM.rangeStart * geometry.size.width)
                     .gesture(
@@ -60,7 +60,7 @@ struct ChartRange: View {
                                 
                                 // Calculate new start and end positions
                                 let newStart = max(min(initialRangeStart + dragOffset, 1 - (initialRangeEnd - initialRangeStart)), 0)
-                                let newEnd = min(max(initialRangeEnd + dragOffset, (initialRangeEnd - initialRangeStart)), 1)
+                                let newEnd = min(max(initialRangeEnd + dragOffset, initialRangeEnd - initialRangeStart), 1)
                                 
                                 if newStart >= 0, newEnd <= 1 {
                                     statsVM.rangeStart = newStart
@@ -77,7 +77,7 @@ struct ChartRange: View {
                 Group {
                     Rectangle()
                         .fill(LinearGradient(
-                            gradient: Gradient(stops: [.init(color: darkMode ? Color.black.opacity(0.2):  Color(#colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)).opacity(0.5), location: 0)]),
+                            gradient: Gradient(stops: [.init(color: darkMode ? Color.black.opacity(0.2) : Color(#colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)).opacity(0.5), location: 0)]),
                             startPoint: .leading,
                             endPoint: .trailing
                         ))
@@ -95,22 +95,23 @@ struct ChartRange: View {
                     .clipShape(.rect(topLeadingRadius: 4, bottomLeadingRadius: 4))
                     .padding(.horizontal, 24)
                     .frame(width: 12)
-                    .offset(x: statsVM.rangeStart * geometry.size.width - 6)
+                    .offset(x: statsVM.rangeStart * geometry.size.width)
                     .gesture(
                         DragGesture()
                             .onChanged { value in
                                 let newPosition = value.location.x / geometry.size.width
-                                statsVM.rangeStart = min(max(0, newPosition), statsVM.rangeEnd)
+                                let minimumDistanceFraction = 24 / geometry.size.width
+                                statsVM.rangeStart = min(max(0, newPosition), statsVM.rangeEnd - minimumDistanceFraction)
                                 onRangeChanged?()
                             }
                     )
                 }
           
-                //Right fade effect with sharper gradient
+                // Right fade effect with sharper gradient
                 Group {
                     Rectangle()
                         .fill(LinearGradient(
-                            gradient: Gradient(stops: [.init(color: darkMode ? Color.black.opacity(0.2):  Color(#colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)).opacity(0.5), location: 0)]),
+                            gradient: Gradient(stops: [.init(color: darkMode ? Color.black.opacity(0.2) : Color(#colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)).opacity(0.5), location: 0)]),
                             startPoint: .leading,
                             endPoint: .trailing
                         ))
@@ -126,15 +127,16 @@ struct ChartRange: View {
                             .frame(width: 8)
                             .padding(.horizontal, 2)
                     }
-                    .clipShape(.rect(bottomTrailingRadius: 4,topTrailingRadius: 4))
+                    .clipShape(.rect(bottomTrailingRadius: 4, topTrailingRadius: 4))
                     .padding(.horizontal, 24)
                     .frame(width: 12)
-                    .offset(x: statsVM.rangeEnd * geometry.size.width - 6)
+                    .offset(x: statsVM.rangeEnd * geometry.size.width - 12)
                     .gesture(
                         DragGesture()
                             .onChanged { value in
                                 let newPosition = value.location.x / geometry.size.width
-                                statsVM.rangeEnd = max(min(1, newPosition), statsVM.rangeStart)
+                                let minimumDistanceFraction = 24 / geometry.size.width
+                                statsVM.rangeEnd = max(min(1, newPosition), statsVM.rangeStart + minimumDistanceFraction)
                                 onRangeChanged?()
                             }
                     )
@@ -143,11 +145,8 @@ struct ChartRange: View {
         }
         .frame(height: 40)
         .cornerRadius(4)
-   
     }
 }
-
-
 
 #Preview {
     ChartRange(statsVM: StatsVM())
