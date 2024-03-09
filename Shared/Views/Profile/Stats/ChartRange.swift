@@ -11,9 +11,8 @@ import Charts
 struct ChartRange: View {
     @AppStorage("darkMode") var darkMode = false
     
-    var data: [ProgresStat]
-    @Binding var rangeStart: CGFloat
-    @Binding var rangeEnd: CGFloat
+    @ObservedObject var statsVM: StatsVM
+    
     @State private var initialDragPosition: CGFloat? = nil
     @State private var initialRangeStart: CGFloat = 0.0
     @State private var initialRangeEnd: CGFloat = 0.0
@@ -26,7 +25,7 @@ struct ChartRange: View {
                 Rectangle()
                     .overlay(content: {
                         Chart {
-                            ForEach(data) { stat in
+                            ForEach(statsVM.stats) { stat in
                                 BarMark(
                                     x: .value("Day", stat.date, unit: .day),
                                     y: .value("Learned", stat.learned)
@@ -49,15 +48,15 @@ struct ChartRange: View {
                 Rectangle()
                     .fill(Color.white.opacity(0.1))
                     .border(width: 2, edges: [.top, .bottom], color: .gray)
-                    .frame(width: (rangeEnd - rangeStart) * geometry.size.width, height: 40)
-                    .offset(x: rangeStart * geometry.size.width)
+                    .frame(width: (statsVM.rangeEnd - statsVM.rangeStart) * geometry.size.width, height: 40)
+                    .offset(x: statsVM.rangeStart * geometry.size.width)
                     .gesture(
                         DragGesture()
                             .onChanged { value in
                                 if initialDragPosition == nil { // Capture initial positions at the start of the drag
                                     initialDragPosition = value.location.x / geometry.size.width
-                                    initialRangeStart = rangeStart
-                                    initialRangeEnd = rangeEnd
+                                    initialRangeStart = statsVM.rangeStart
+                                    initialRangeEnd = statsVM.rangeEnd
                                 }
                                 
                                 let currentDragPosition = value.location.x / geometry.size.width
@@ -68,8 +67,8 @@ struct ChartRange: View {
                                 let newEnd = min(max(initialRangeEnd + dragOffset, (initialRangeEnd - initialRangeStart)), 1)
                                 
                                 if newStart >= 0, newEnd <= 1 {
-                                    rangeStart = newStart
-                                    rangeEnd = newEnd
+                                    statsVM.rangeStart = newStart
+                                    statsVM.rangeEnd = newEnd
                                     onRangeChanged?()
                                 }
                             }
@@ -89,7 +88,7 @@ struct ChartRange: View {
                         ),
                         startPoint: .leading, endPoint: .trailing)
                     )
-                    .frame(width: rangeStart * geometry.size.width, height: 40)
+                    .frame(width: statsVM.rangeStart * geometry.size.width, height: 40)
                 
                 
                 //Right fade effect with sharper gradient
@@ -103,8 +102,8 @@ struct ChartRange: View {
                         ),
                         startPoint: .leading, endPoint: .trailing)
                     )
-                    .frame(width: geometry.size.width * (1 - rangeEnd), height: 40)
-                    .offset(x: rangeEnd * geometry.size.width)
+                    .frame(width: geometry.size.width * (1 - statsVM.rangeEnd), height: 40)
+                    .offset(x: statsVM.rangeEnd * geometry.size.width)
                 
                 
                 // Handles for adjusting the start and end of the range
@@ -115,12 +114,12 @@ struct ChartRange: View {
                             .foregroundColor(.white)
                         )
                     .frame(width: 12, height: 40)
-                    .offset(x: rangeStart * geometry.size.width - 6)
+                    .offset(x: statsVM.rangeStart * geometry.size.width - 6)
                     .gesture(
                         DragGesture()
                             .onChanged { value in
                                 let newPosition = value.location.x / geometry.size.width
-                                rangeStart = min(max(0, newPosition), rangeEnd)
+                                statsVM.rangeStart = min(max(0, newPosition), statsVM.rangeEnd)
                                 onRangeChanged?()
                             }
                     )
@@ -132,12 +131,12 @@ struct ChartRange: View {
                             .foregroundColor(.white)
                         )
                     .frame(width: 10, height: 40)
-                    .offset(x: rangeEnd * geometry.size.width - 6)
+                    .offset(x: statsVM.rangeEnd * geometry.size.width - 6)
                     .gesture(
                         DragGesture()
                             .onChanged { value in
                                 let newPosition = value.location.x / geometry.size.width
-                                rangeEnd = max(min(1, newPosition), rangeStart)
+                                statsVM.rangeEnd = max(min(1, newPosition), statsVM.rangeStart)
                                 onRangeChanged?()
                             }
                     )
@@ -152,6 +151,6 @@ struct ChartRange: View {
 
 
 #Preview {
-    Stats()
+    ChartRange(statsVM: StatsVM())
 
 }

@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ChartLegends: View {
-    @Binding var showAddedData: Bool
-    @Binding var showLearnedData: Bool
+    @ObservedObject var statsVM: StatsVM
     
     var body: some View {
         HStack(spacing: 10) {
-            Chip(label: "Learned", color: .pink, isChecked: $showLearnedData)
-                .disabled(!showAddedData)
-            Chip(label: "Added", color: .blue, isChecked: $showAddedData)
-                .disabled(!showLearnedData)
+            Chip(label: "Learned", color: .pink, isChecked: $statsVM.showLearnedData)
+                .disabled(!statsVM.showAddedData)
+            
+            Chip(label: "Added", color: .blue, isChecked: $statsVM.showAddedData)
+                .disabled(!statsVM.showLearnedData)
         }
         
     }
@@ -24,5 +24,5 @@ struct ChartLegends: View {
 
 
 #Preview {
-    ChartLegends(showAddedData: .constant(true), showLearnedData: .constant(true))
+    ChartLegends(statsVM: StatsVM())
 }

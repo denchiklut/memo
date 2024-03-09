@@ -9,10 +9,7 @@ import SwiftUI
 import Charts
 
 struct StatChart: View {
-    var data: [ProgresStat]
-    var showAddedData: Bool
-    var showLearnedData: Bool
-    
+    @ObservedObject var statsVM: StatsVM
     @State private var selectedData: ProgresStat?
 
     
@@ -23,8 +20,8 @@ struct StatChart: View {
                     .foregroundStyle(.blue)
                     .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
                 
-                ForEach(data) { stat in
-                    if showLearnedData {
+                ForEach(statsVM.filteredData()) { stat in
+                    if statsVM.showLearnedData {
                         BarMark(
                             x: .value("Day", stat.date, unit: .day),
                             y: .value("Learned", stat.learned)
@@ -34,7 +31,7 @@ struct StatChart: View {
                       
                     }
                     
-                    if showAddedData {
+                    if statsVM.showAddedData {
                         BarMark(
                             x: .value("Day", stat.date, unit: .day),
                             y: .value("Added", stat.added)
@@ -43,6 +40,7 @@ struct StatChart: View {
                         .opacity(selectedData == nil ? 1 : selectedData?.id != stat.id ? 0.6:  1)
                     }
                   
+
                 }
             }
             .chartXAxis {
@@ -64,7 +62,7 @@ struct StatChart: View {
                                 .onChanged { value in
                                     let location = value.location
                                     if let date: Date = proxy.value(atX: location.x) {
-                                        selectedData = getValue(for: date, within: data)
+                                        selectedData = statsVM.getStat(for: date)
                                     }
                                 }
                                 .onEnded { _ in
@@ -87,25 +85,15 @@ struct StatChart: View {
                      .cornerRadius(10)
              }
         }
-       
+        .animation(.easeInOut, value: statsVM.rangeStart)
+        .animation(.easeInOut, value: statsVM.rangeEnd)
+        .animation(.easeInOut, value: statsVM.showAddedData)
+        .animation(.easeInOut, value: statsVM.showLearnedData)
     }
 
-    // Example function to get a value for a given date from your data array
-    // This will depend on how your actual data is structured
-    func getValue(for targetDate: Date, within data: [ProgresStat]) -> ProgresStat? {
-        let calendar = Calendar.current
-        let targetDateComponents = calendar.dateComponents([.year, .month, .day], from: targetDate)
-        
-        return data.first { stat in
-            let statDateComponents = calendar.dateComponents([.year, .month, .day], from: stat.date)
-            return statDateComponents.year == targetDateComponents.year &&
-                   statDateComponents.month == targetDateComponents.month &&
-                   statDateComponents.day == targetDateComponents.day
-        }
-    }
 }
 
 
 #Preview {
-    Stats()
+    StatChart(statsVM: StatsVM())
 }

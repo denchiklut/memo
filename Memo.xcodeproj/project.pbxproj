@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5238F0432B9CA9AA00F5233C /* StatsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5238F0422B9CA9AA00F5233C /* StatsVM.swift */; };
 		5240D3DE280742AB0050B6EF /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5240D3DD280742AB0050B6EF /* BlurView.swift */; };
 		524445392B97586500DB2842 /* ChartLegends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524445382B97586500DB2842 /* ChartLegends.swift */; };
 		5244453C2B976D6100DB2842 /* Chip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5244453B2B976D6100DB2842 /* Chip.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5238F0422B9CA9AA00F5233C /* StatsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsVM.swift; sourceTree = "<group>"; };
 		5240D3DD280742AB0050B6EF /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		524445382B97586500DB2842 /* ChartLegends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartLegends.swift; sourceTree = "<group>"; };
 		5244453B2B976D6100DB2842 /* Chip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chip.swift; sourceTree = "<group>"; };
@@ -119,6 +121,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5238F0412B9CA98400F5233C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5238F0422B9CA9AA00F5233C /* StatsVM.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		5240D3DC2807428F0050B6EF /* BlurView */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +168,7 @@
 		5250E117280169FE003D53C2 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				5238F0412B9CA98400F5233C /* ViewModels */,
 				52F6EEF428E9E8A300A44565 /* Models */,
 				5250E13928017078003D53C2 /* Views */,
 				52F6EEF028E9E2D700A44565 /* Icons */,
@@ -480,6 +491,7 @@
 				52F6EEE128E873DF00A44565 /* TranslateWord.swift in Sources */,
 				5250E12A28016A06003D53C2 /* Home.swift in Sources */,
 				5244453E2B977A6800DB2842 /* ProgresStat.swift in Sources */,
+				5238F0432B9CA9AA00F5233C /* StatsVM.swift in Sources */,
 				5240D3DE280742AB0050B6EF /* BlurView.swift in Sources */,
 				52F6EEE728E8746F00A44565 /* Consts.swift in Sources */,
 				5245CD3D2B94C75600B9A75D /* ChartRange.swift in Sources */,
