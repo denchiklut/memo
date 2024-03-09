@@ -22,28 +22,24 @@ struct ChartRange: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
-                Rectangle()
-                    .overlay(content: {
-                        Chart {
-                            ForEach(statsVM.stats) { stat in
-                                BarMark(
-                                    x: .value("Day", stat.date, unit: .day),
-                                    y: .value("Learned", stat.learned)
-                                )
-                                .foregroundStyle(.pink.gradient)
-                                
-                                BarMark(
-                                    x: .value("Day", stat.date, unit: .day),
-                                    y: .value("Added", stat.added)
-                                )
-                                .foregroundStyle(.blue.gradient)
-                            }
-                        }
-                        .background(Color("PaperColor"))
-                        .chartYAxis(.hidden)
-                        .chartXAxis(.hidden)
-                    })
-                    .frame(height: 40)
+                Chart {
+                    ForEach(statsVM.stats) { stat in
+                        BarMark(
+                            x: .value("Day", stat.date, unit: .day),
+                            y: .value("Learned", stat.learned)
+                        )
+                        .foregroundStyle(.pink.gradient)
+                        
+                        BarMark(
+                            x: .value("Day", stat.date, unit: .day),
+                            y: .value("Added", stat.added)
+                        )
+                        .foregroundStyle(.blue.gradient)
+                    }
+                }
+                .background(Color("PaperColor"))
+                .chartYAxis(.hidden)
+                .chartXAxis(.hidden)
                 
                 Rectangle()
                     .fill(Color.white.opacity(0.1))
@@ -78,42 +74,27 @@ struct ChartRange: View {
                     )
                 
                 // Left fade effect with sharper gradient
-                Rectangle()
-                    .fill(LinearGradient(
-                        gradient: Gradient(
-                            stops: [
-                                .init(color: darkMode ? Color.black.opacity(0.2):  Color.white.opacity(0.6), location: 0),
-                                .init(color: .clear, location: geometry.size.width)
-                            ]
-                        ),
-                        startPoint: .leading, endPoint: .trailing)
-                    )
-                    .frame(width: statsVM.rangeStart * geometry.size.width, height: 40)
-                
-                
-                //Right fade effect with sharper gradient
-                Rectangle()
-                    .fill(LinearGradient(
-                        gradient: Gradient(
-                            stops: [
-                                .init(color: .clear, location: -geometry.size.width),
-                                .init(color:  darkMode ? Color.black.opacity(0.2):  Color.white.opacity(0.6), location: 0)
-                            ]
-                        ),
-                        startPoint: .leading, endPoint: .trailing)
-                    )
-                    .frame(width: geometry.size.width * (1 - statsVM.rangeEnd), height: 40)
-                    .offset(x: statsVM.rangeEnd * geometry.size.width)
-                
-                
-                // Handles for adjusting the start and end of the range
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(Color.gray)
-                    .overlay(
+                Group {
+                    Rectangle()
+                        .fill(LinearGradient(
+                            gradient: Gradient(stops: [.init(color: darkMode ? Color.black.opacity(0.2):  Color(#colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)).opacity(0.5), location: 0)]),
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        ))
+                        .frame(width: statsVM.rangeStart * geometry.size.width)
+                    
+                    ZStack {
+                        Color.gray
                         Image(systemName: "chevron.left")
+                            .resizable()
+                            .scaledToFit()
                             .foregroundColor(.white)
-                        )
-                    .frame(width: 12, height: 40)
+                            .frame(width: 8)
+                            .padding(.horizontal, 2)
+                    }
+                    .clipShape(.rect(topLeadingRadius: 4, bottomLeadingRadius: 4))
+                    .padding(.horizontal, 24)
+                    .frame(width: 12)
                     .offset(x: statsVM.rangeStart * geometry.size.width - 6)
                     .gesture(
                         DragGesture()
@@ -123,14 +104,31 @@ struct ChartRange: View {
                                 onRangeChanged?()
                             }
                     )
-                
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(Color.gray)
-                    .overlay(
+                }
+          
+                //Right fade effect with sharper gradient
+                Group {
+                    Rectangle()
+                        .fill(LinearGradient(
+                            gradient: Gradient(stops: [.init(color: darkMode ? Color.black.opacity(0.2):  Color(#colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)).opacity(0.5), location: 0)]),
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        ))
+                        .frame(width: geometry.size.width * (1 - statsVM.rangeEnd))
+                        .offset(x: statsVM.rangeEnd * geometry.size.width)
+                    
+                    ZStack {
+                        Color.gray
                         Image(systemName: "chevron.right")
+                            .resizable()
+                            .scaledToFit()
                             .foregroundColor(.white)
-                        )
-                    .frame(width: 10, height: 40)
+                            .frame(width: 8)
+                            .padding(.horizontal, 2)
+                    }
+                    .clipShape(.rect(bottomTrailingRadius: 4,topTrailingRadius: 4))
+                    .padding(.horizontal, 24)
+                    .frame(width: 12)
                     .offset(x: statsVM.rangeEnd * geometry.size.width - 6)
                     .gesture(
                         DragGesture()
@@ -140,10 +138,11 @@ struct ChartRange: View {
                                 onRangeChanged?()
                             }
                     )
+                }
             }
         }
-      
         .frame(height: 40)
+        .cornerRadius(4)
    
     }
 }
@@ -152,5 +151,5 @@ struct ChartRange: View {
 
 #Preview {
     ChartRange(statsVM: StatsVM())
-
+        .padding()
 }
