@@ -54,7 +54,7 @@ struct StatChart: View {
                         .fill(Color.clear)
                         .contentShape(Rectangle())
                         .gesture(
-                            DragGesture()
+                            DragGesture(minimumDistance: 0)
                                 .onChanged { value in
                                     let location = value.location
                                     if let date: Date = proxy.value(atX: location.x) {
@@ -67,10 +67,10 @@ struct StatChart: View {
                         )
                 }
             }
-
             .onChange(of: selectedData) { _ in
-                let generator = UINotificationFeedbackGenerator()
-                generator.notificationOccurred(.success)
+                let generator = UIImpactFeedbackGenerator(style: .rigid)
+                generator.prepare() // Optionally prepare for a more immediate feedback
+                generator.impactOccurred()
             }
 
             // Details View
@@ -89,5 +89,6 @@ struct StatChart: View {
 }
 
 #Preview {
-    StatChart(statsVM: StatsVM())
+//    StatChart(statsVM: StatsVM())
+    Stats()
 }
