@@ -154,10 +154,8 @@
 		5245CD372B94A5F900B9A75D /* Stats */ = {
 			isa = PBXGroup;
 			children = (
-				5296F36D2B9E0B7400F9C7EF /* Range */,
+				5296F3702B9E316000F9C7EF /* Chart */,
 				5245CD382B94A61100B9A75D /* Stats.swift */,
-				5245CD3E2B94C80600B9A75D /* StatChart.swift */,
-				524445382B97586500DB2842 /* ChartLegends.swift */,
 			);
 			path = Stats;
 			sourceTree = "<group>";
@@ -354,6 +352,16 @@
 				5296F36E2B9E180500F9C7EF /* RangeChart.swift */,
 			);
 			path = Range;
+			sourceTree = "<group>";
+		};
+		5296F3702B9E316000F9C7EF /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				5296F36D2B9E0B7400F9C7EF /* Range */,
+				524445382B97586500DB2842 /* ChartLegends.swift */,
+				5245CD3E2B94C80600B9A75D /* StatChart.swift */,
+			);
+			path = Chart;
 			sourceTree = "<group>";
 		};
 		52F6EEDF28E873AF00A44565 /* Levels */ = {

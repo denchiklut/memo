@@ -19,9 +19,12 @@ struct StatsRange: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
-                RangeChart(data: statsVM.stats)
-                RangeSelection(statsVM: statsVM, fullWidth: geometry.size.width)
-
+                Group {
+                    RangeChart(data: statsVM.stats)
+                    RangeSelection(statsVM: statsVM, fullWidth: geometry.size.width)
+                }
+                .frame(height: 40)
+                
                 Rectangle()
                     .fill(Color.white.opacity(0.1))
                     .border(width: 2, edges: [.top, .bottom], color: .gray)
@@ -78,7 +81,7 @@ struct StatsRange: View {
                     )
             }
         }
-        .frame(height: 40)
+        .frame(height: 44)
         .cornerRadius(4)
     }
 }
