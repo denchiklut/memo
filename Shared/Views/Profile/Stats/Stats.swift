@@ -18,7 +18,7 @@ struct Stats: View {
             
             StatChart(statsVM: statsVM)
              
-            ChartRange(statsVM: statsVM)
+            StatsRange(statsVM: statsVM)
                 .padding(.top, 23)
             
             ChartLegends(statsVM: statsVM)
