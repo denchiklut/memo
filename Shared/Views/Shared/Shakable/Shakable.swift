@@ -38,7 +38,7 @@ struct ShakeableModifier: ViewModifier {
 }
 
 extension View {
-    func shakeable(shake: Bool) -> some View {
+    func shakeable(_ shake: Bool) -> some View {
         modifier(ShakeableModifier(shake: shake))
     }
 }

@@ -36,7 +36,6 @@ extension ToggleStyle where Self == ChipToggleStyle {
     }
 }
 
-
 #Preview {
     VStack {
         Toggle(isOn: .constant(false)) {
@@ -44,7 +43,7 @@ extension ToggleStyle where Self == ChipToggleStyle {
         }
         .toggleStyle(.chip)
         .disabled(true)
-        .shakeable(shake: true)
+        .shakeable(true)
     }
     .frame(maxWidth: 100)
 }

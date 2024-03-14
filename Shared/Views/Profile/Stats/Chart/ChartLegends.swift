@@ -17,14 +17,14 @@ struct ChartLegends: View {
             }
             .toggleStyle(ChipToggleStyle(color: .pink))
             .disabled(!statsVM.showAddedData)
-            .shakeable(shake: !statsVM.showAddedData)
+            .shakeable(!statsVM.showAddedData)
 
             Toggle(isOn: $statsVM.showAddedData) {
                 Text("Added")
             }
             .toggleStyle(ChipToggleStyle(color: .blue))
             .disabled(!statsVM.showLearnedData)
-            .shakeable(shake: !statsVM.showLearnedData)
+            .shakeable(!statsVM.showLearnedData)
         }
     }
 }
