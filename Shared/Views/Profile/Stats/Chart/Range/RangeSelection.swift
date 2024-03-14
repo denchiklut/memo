@@ -20,6 +20,7 @@ struct RangeSelection: View {
                 startPoint: .leading,
                 endPoint: .trailing
             ))
+            .cornerRadius(4)
             .frame(width: (statsVM.rangeStart * fullWidth) + 6)
 
         Rectangle()
@@ -28,6 +29,7 @@ struct RangeSelection: View {
                 startPoint: .leading,
                 endPoint: .trailing
             ))
+            .cornerRadius(4)
             .frame(width: fullWidth * (1 - statsVM.rangeEnd) + 6)
             .offset(x: (statsVM.rangeEnd * fullWidth) - 6)
     }

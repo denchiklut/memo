@@ -87,5 +87,6 @@ struct StatChart: View {
 
 #Preview {
     StatChart(statsVM: StatsVM())
-        .frame(height: 450)
+        .frame(height: 180)
+        .padding()
 }

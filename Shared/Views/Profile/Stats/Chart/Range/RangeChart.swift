@@ -30,6 +30,7 @@ struct RangeChart: View {
         .background(Color("PaperColor"))
         .chartYAxis(.hidden)
         .chartXAxis(.hidden)
+        .cornerRadius(4)
     }
 }
 

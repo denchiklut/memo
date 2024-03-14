@@ -19,7 +19,7 @@ struct Stats: View {
             StatChart(statsVM: statsVM)
              
             StatsRange(statsVM: statsVM)
-                .padding(.top, 23)
+                .padding(.top)
             
             ChartLegends(statsVM: statsVM)
                 .padding(.top)
