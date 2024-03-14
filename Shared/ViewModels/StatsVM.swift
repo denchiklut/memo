@@ -30,7 +30,7 @@ class StatsVM: ObservableObject {
         .init(date: Date.from(year: 2023, month: 10, day: 14), added: 4, learned: 3),
         .init(date: Date.from(year: 2023, month: 10, day: 15), added: 7, learned: 10),
         .init(date: Date.from(year: 2023, month: 10, day: 16), added: 8, learned: 5),
-        .init(date: Date.from(year: 2023, month: 10, day: 17), added: 1,learned: 16),
+        .init(date: Date.from(year: 2023, month: 10, day: 17), added: 1, learned: 16),
     ]
     
     func filteredData() -> [ProgresStat] {
@@ -73,9 +73,8 @@ class StatsVM: ObservableObject {
             let statDateComponents = calendar.dateComponents([.year, .month, .day], from: stat.date)
             
             return statDateComponents.year == targetDateComponents.year &&
-                   statDateComponents.month == targetDateComponents.month &&
-                   statDateComponents.day == targetDateComponents.day
+                statDateComponents.month == targetDateComponents.month &&
+                statDateComponents.day == targetDateComponents.day
         }
     }
-    
 }
