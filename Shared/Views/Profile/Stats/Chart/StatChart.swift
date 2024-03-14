@@ -11,6 +11,7 @@ import SwiftUI
 struct StatChart: View {
     @ObservedObject var statsVM: StatsVM
     @State private var selectedData: ProgresStat?
+    @State private var locationX: CGFloat?
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -53,32 +54,28 @@ struct StatChart: View {
                     Rectangle()
                         .fill(Color.clear)
                         .contentShape(Rectangle())
+                        .onTapGesture { selectedData = nil }
                         .gesture(
                             DragGesture(minimumDistance: 0)
                                 .onChanged { value in
                                     let location = value.location
                                     if let date: Date = proxy.value(atX: location.x) {
                                         selectedData = statsVM.getStat(for: date)
+                                        locationX = location.x
                                     }
                                 }
-                                .onEnded { _ in
-                                    selectedData = nil
-                                }
+                                .onEnded { _ in selectedData = nil }
                         )
                 }
             }
             .onChange(of: selectedData) { _ in
                 let generator = UIImpactFeedbackGenerator(style: .rigid)
-                generator.prepare() // Optionally prepare for a more immediate feedback
+                generator.prepare()
                 generator.impactOccurred()
             }
 
-            // Details View
-            if let selectedStat = selectedData {
-                Text("Added \(selectedStat.added)")
-                    .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(10)
+            if let centerX = locationX, let selectedStat = selectedData {
+                ChartTooltip(centerX: centerX, selectedStat: selectedStat)
             }
         }
         .animation(.easeInOut, value: statsVM.rangeStart)
@@ -89,6 +86,6 @@ struct StatChart: View {
 }
 
 #Preview {
-//    StatChart(statsVM: StatsVM())
-    Stats()
+    StatChart(statsVM: StatsVM())
+        .frame(height: 450)
 }
