@@ -31,5 +31,6 @@ struct Stats: View {
 
 #Preview {
     Stats()
+        .frame(height: 180)
     
 }

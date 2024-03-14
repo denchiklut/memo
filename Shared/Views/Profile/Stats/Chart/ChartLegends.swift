@@ -12,11 +12,19 @@ struct ChartLegends: View {
 
     var body: some View {
         HStack(spacing: 10) {
-            Chip(label: "Learned", color: .pink, isChecked: $statsVM.showLearnedData)
-                .disabled(!statsVM.showAddedData)
+            Toggle(isOn: $statsVM.showLearnedData) {
+                Text("Learned")
+            }
+            .toggleStyle(ChipToggleStyle(color: .pink))
+            .disabled(!statsVM.showAddedData)
+            .shakeable(shake: !statsVM.showAddedData)
 
-            Chip(label: "Added", color: .blue, isChecked: $statsVM.showAddedData)
-                .disabled(!statsVM.showLearnedData)
+            Toggle(isOn: $statsVM.showAddedData) {
+                Text("Added")
+            }
+            .toggleStyle(ChipToggleStyle(color: .blue))
+            .disabled(!statsVM.showLearnedData)
+            .shakeable(shake: !statsVM.showLearnedData)
         }
     }
 }
