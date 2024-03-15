@@ -7,26 +7,22 @@
 
 import SwiftUI
 
-struct Chip: View {
-    let label: String
-    let color: Color
-    @Binding var isChecked: Bool
-    var action: ((Bool) -> Void)? = nil 
+struct ChipToggleStyle: ToggleStyle {
+    var color: Color
 
-    var body: some View {
+    func makeBody(configuration: Configuration) -> some View {
         Button(action: {
-            isChecked.toggle()
-            action?(isChecked)
+            configuration.isOn.toggle()
         }) {
-            Text(label)
+            configuration.label
                 .font(.system(size: 16))
                 .padding(.vertical, 4)
                 .padding(.horizontal, 20)
-                .foregroundColor(isChecked ? .white : color)
-                .background(isChecked ? color : .clear)
+                .foregroundColor(configuration.isOn ? .white : color)
+                .background(configuration.isOn ? color : .clear)
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
-                        .stroke(color, lineWidth: isChecked ? 0 : 1)
+                        .stroke(color, lineWidth: configuration.isOn ? 0 : 1)
                 )
         }
         .cornerRadius(20)
@@ -34,7 +30,20 @@ struct Chip: View {
     }
 }
 
+extension ToggleStyle where Self == ChipToggleStyle {
+    static var chip: ChipToggleStyle {
+        ChipToggleStyle(color: .accentColor)
+    }
+}
+
 #Preview {
-    Chip(label: "Hi there", color: .pink, isChecked: .constant(false))
-        .foregroundColor(.red)
+    VStack {
+        Toggle(isOn: .constant(false)) {
+            Text("Label")
+        }
+        .toggleStyle(.chip)
+        .disabled(true)
+        .shakeable(true)
+    }
+    .frame(maxWidth: 100)
 }
