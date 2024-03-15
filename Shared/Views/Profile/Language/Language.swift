@@ -10,7 +10,7 @@ import SwiftUI
 struct Language: View {
     @State var selected = 0
     @Binding var isPromted: Bool
-    
+
     var body: some View {
         VStack(spacing: 20) {
             VStack {
@@ -20,16 +20,15 @@ struct Language: View {
                 Text("Choose language")
                     .font(.title)
                     .foregroundColor(.secondary)
-                
             }
             .padding()
-            
+
             VStack(spacing: 0) {
                 ForEach(langs.indices, id: \.self) { index in
-                        Divider()
-                            .padding(.leading)
-                            .opacity(index == 0 ? 0 : 1)
-                        
+                    Divider()
+                        .padding(.leading)
+                        .opacity(index == 0 ? 0 : 1)
+
                     Button(action: {
                         selected = index
                     }) {
@@ -37,7 +36,7 @@ struct Language: View {
                             Text(langs[index])
                                 .foregroundColor(.primary)
                             Spacer()
-                            Image(systemName: selected == index ? "largecircle.fill.circle": "circle")
+                            Image(systemName: selected == index ? "largecircle.fill.circle" : "circle")
                                 .resizable()
                                 .scaledToFit()
                                 .foregroundColor(.pink)
@@ -52,7 +51,7 @@ struct Language: View {
             .cornerRadius(10)
 
             Spacer()
-                   
+
             Button(action: {
                 isPromted.toggle()
             }) {

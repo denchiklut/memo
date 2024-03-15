@@ -9,11 +9,11 @@ import SwiftUI
 
 struct Level: View {
     @State var current = 0
-    
+
     func onAnswer() {
         current = current + 1
     }
-    
+
     var body: some View {
         PageView(
             currentPage: $current,

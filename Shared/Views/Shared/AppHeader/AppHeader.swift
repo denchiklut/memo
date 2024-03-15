@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AppHeader: View {    
+struct AppHeader: View {
     var body: some View {
         Color.clear
             .background(.thinMaterial)
