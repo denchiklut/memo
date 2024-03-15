@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct PageViewController<Page: View>: UIViewControllerRepresentable {
     var pages: [Page]
     @Binding var currentPage: Int

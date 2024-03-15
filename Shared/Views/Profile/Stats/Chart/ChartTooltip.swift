@@ -10,7 +10,7 @@ import SwiftUI
 struct ChartTooltip: View {
     var centerX: CGFloat
     var selectedStat: ProgresStat
-    
+
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {

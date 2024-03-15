@@ -48,13 +48,12 @@ struct StrechyHeader: View {
                             .offset(y: minY < 0 ? -minY : 0)
                             .opacity(Double(-minY / getRect().width))
                     }
-                        .offset(y: minY > 0 ? -minY : 0)
+                    .offset(y: minY > 0 ? -minY : 0)
                 )
             }
             .frame(height: getRect().width)
             .offset(y: -getSafeArea().top)
             .zIndex(1)
-            
             
             HStack {
                 VStack(alignment: .leading, spacing: 6) {
@@ -72,7 +71,7 @@ struct StrechyHeader: View {
 
                 HStack(spacing: 15) {
                     Button(action: {}, label: {
-                        VStack(spacing: 5){
+                        VStack(spacing: 5) {
                             Image(systemName: "rectangle.portrait.and.arrow.right")
                                 .padding(8)
                                 .background(.pink)
@@ -88,10 +87,8 @@ struct StrechyHeader: View {
             .border(width: 0.4, edges: [.bottom], color: Color("BorderColor"))
             .offset(y: -getSafeArea().top)
             .padding(.bottom, -getSafeArea().top)
-        
         }
     }
-    
 }
 
 struct StrechyHeader_Previews: PreviewProvider {
@@ -101,11 +98,10 @@ struct StrechyHeader_Previews: PreviewProvider {
                 StrechyHeader(image: "denchiklut")
                     .zIndex(1)
                     
-                ForEach(1...20, id: \.self) { index in
+                ForEach(1 ... 20, id: \.self) { index in
                     Text("\(index)")
                 }
                 .padding(.top)
-           
             }
         }
         .background(Color("BackgroundColor"))

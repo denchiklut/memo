@@ -10,7 +10,7 @@ import SwiftUI
 struct Settings: View {
     @AppStorage("darkMode") var darkMode = false
     @State var isOpen = false
-    
+
     var body: some View {
         VStack(spacing: 20) {
             HStack {
@@ -23,7 +23,6 @@ struct Settings: View {
                         .foregroundColor(.secondary)
                 }
                 .padding(.vertical, 4)
-                
             }
             .padding()
             .frame(maxWidth: .infinity)
@@ -33,7 +32,6 @@ struct Settings: View {
                 Language(isPromted: $isOpen)
             }
 
-            
             VStack(spacing: 0) {
                 HStack {
                     Toggle(isOn: $darkMode) {
@@ -43,7 +41,7 @@ struct Settings: View {
                 .padding()
                 .background(Color("PaperColor"))
                 .border(width: 0.4, edges: [.top, .bottom], color: Color("BorderColor"))
-                
+
                 ForEach(items, id: \.self) { item in
                     HStack {
                         Text(item)

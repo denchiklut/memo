@@ -10,7 +10,7 @@ import SwiftUI
 struct LevelCell: View {
     var index: Int
     var onAnswer: () -> Void
-    
+
     var body: some View {
         VStack {
             Spacer()
@@ -22,7 +22,7 @@ struct LevelCell: View {
                         WordListen()
                         Spacer()
                         VStack(spacing: 0) {
-                            ForEach(1...4, id:\.self) { index in
+                            ForEach(1 ... 4, id: \.self) { index in
                                 Button("Вариант \(index)") {
                                     onAnswer()
                                 }
@@ -44,8 +44,6 @@ struct LevelCell: View {
 
 struct LevelCell_Previews: PreviewProvider {
     static var previews: some View {
-        LevelCell(index: 0) {
-            
-        }
+        LevelCell(index: 0) {}
     }
 }

@@ -11,17 +11,17 @@ struct Trainings: View {
     var body: some View {
         ZStack(alignment: .top) {
             Color("BackgroundColor")
-            
+
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
                     HStack {
-                        cell(header: "Word - translation",  image: "cube.transparent")
-                        cell(header: "Translation - word",  image: "cube.transparent.fill")
+                        cell(header: "Word - translation", image: "cube.transparent")
+                        cell(header: "Translation - word", image: "cube.transparent.fill")
                     }
                     .padding(.top, 100)
                     HStack {
-                        cell(header: "Listening",  image: "airpodsmax")
-                        cell(header: "Word - Builder",  image: "rectangle.and.pencil.and.ellipsis")
+                        cell(header: "Listening", image: "airpodsmax")
+                        cell(header: "Word - Builder", image: "rectangle.and.pencil.and.ellipsis")
                     }
                 }
             }

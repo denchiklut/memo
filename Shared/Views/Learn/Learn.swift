@@ -14,10 +14,8 @@ struct Learn: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarTitle("Memo")
         }
-
     }
 }
-
 
 struct Learn_Previews: PreviewProvider {
     static var previews: some View {

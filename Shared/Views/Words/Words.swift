@@ -12,22 +12,22 @@ struct Words: View {
     @State var search = ""
     @AppStorage("darkMode") var darkMode: Bool = false
     @State private var selection: String?
-    
+
     init() {
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = darkMode
-        ? UIColor(cgColor: CGColor(red: 18/255, green: 18/255, blue: 18/255, alpha: 0.9))
-        : UIColor(cgColor: CGColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 0.9))
+            ? UIColor(cgColor: CGColor(red: 18/255, green: 18/255, blue: 18/255, alpha: 0.9))
+            : UIColor(cgColor: CGColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 0.9))
         appearance.shadowColor = UIColor.systemGray4
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().compactAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
-    
+
     var body: some View {
         NavigationView {
             List(selection: $selection) {
-                ForEach(1...25, id:\.self) { index in
+                ForEach(1 ... 25, id: \.self) { index in
                     VStack(alignment: .leading) {
                         Text("Item \(index)")
                             .foregroundColor(.primary)
@@ -38,14 +38,13 @@ struct Words: View {
                     .listSectionSeparator(.hidden)
                     .padding(.vertical, 8)
                     .swipeActions {
-                          Button (action: {}) {
-                              Image(systemName: "trash")
-                          }
-                          .tint(Color.red)
+                        Button(action: {}) {
+                            Image(systemName: "trash")
                         }
+                        .tint(Color.red)
+                    }
                 }
-                .onDelete { index in
-                    
+                .onDelete { _ in
                 }
             }
             .navigationTitle("Dictionary")
@@ -63,8 +62,7 @@ struct Words: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {}) {
                         Image(systemName: "plus")
-                   }
-
+                    }
                 }
             }
             .scrollIndicators(.hidden)

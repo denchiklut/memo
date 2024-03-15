@@ -15,12 +15,12 @@ struct Stats: View {
             Text(statsVM.getTitle())
                 .fontWeight(.bold)
                 .padding(.bottom)
-            
+
             StatChart(statsVM: statsVM)
-             
+
             StatsRange(statsVM: statsVM)
                 .padding(.top)
-            
+
             ChartLegends(statsVM: statsVM)
                 .padding(.top)
         }

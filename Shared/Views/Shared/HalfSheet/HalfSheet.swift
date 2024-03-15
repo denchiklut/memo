@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 class HalfHostingController<Content: View>: UIHostingController<Content> {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,9 +14,9 @@ class HalfHostingController<Content: View>: UIHostingController<Content> {
         view.backgroundColor = .clear
         
         if let presentationController = presentationController as? UISheetPresentationController {
-                presentationController.detents = [.medium()]
-                presentationController.prefersGrabberVisible = true
-            }
+            presentationController.detents = [.medium()]
+            presentationController.prefersGrabberVisible = true
+        }
     }
 }
 
@@ -46,7 +45,7 @@ struct HalfSheetHelper<SheetView: View>: UIViewControllerRepresentable {
         }
     }
     
-    class Coordinator: NSObject,  UISheetPresentationControllerDelegate {
+    class Coordinator: NSObject, UISheetPresentationControllerDelegate {
         var parent: HalfSheetHelper
         
         init(parent: HalfSheetHelper) {
@@ -63,11 +62,10 @@ struct HalfSheetHelper<SheetView: View>: UIViewControllerRepresentable {
 extension View {
     func halfSheet<SheetView: View>(
         isPresented: Binding<Bool>,
-        @ViewBuilder content:  @escaping () -> SheetView,
+        @ViewBuilder content: @escaping () -> SheetView,
         onEnd: @escaping () -> Void = {}
     ) -> some View {
-        return self
-            .background(HalfSheetHelper(sheetView: content(), isPresented: isPresented, onEnd: onEnd))
+        return background(HalfSheetHelper(sheetView: content(), isPresented: isPresented, onEnd: onEnd))
     }
 }
  

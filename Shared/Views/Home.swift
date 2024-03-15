@@ -8,13 +8,13 @@
 import SwiftUI
 
 enum Tabs {
-   case profile, trainging, words
+    case profile, trainging, words
 }
 
 struct HomeView: View {
     @AppStorage("darkMode") var darkMode: Bool = true
     @State var currentTub: Tabs = .trainging
-    
+
     var body: some View {
         TabView(selection: $currentTub) {
             Profile()
@@ -37,7 +37,7 @@ struct HomeView: View {
                 .tag(Tabs.words)
         }
         .accentColor(.pink)
-        .preferredColorScheme(darkMode ? .dark: .light)
+        .preferredColorScheme(darkMode ? .dark : .light)
     }
 }
 

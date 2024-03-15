@@ -52,8 +52,6 @@
 		52F6EEE328E873F300A44565 /* WordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6EEE228E873F300A44565 /* WordBuilder.swift */; };
 		52F6EEE528E8740E00A44565 /* WordListen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6EEE428E8740E00A44565 /* WordListen.swift */; };
 		52F6EEE728E8746F00A44565 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6EEE628E8746F00A44565 /* Consts.swift */; };
-		52F6EEEA28E876CA00A44565 /* Liquid in Frameworks */ = {isa = PBXBuildFile; productRef = 52F6EEE928E876CA00A44565 /* Liquid */; };
-		52F6EEED28E9E07800A44565 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 52F6EEEC28E9E07800A44565 /* Lottie */; };
 		52F6EF0728E9FBCF00A44565 /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 52F6EF0628E9FBCF00A44565 /* settings.json */; };
 		52F6EF0928E9FC4100A44565 /* play.json in Resources */ = {isa = PBXBuildFile; fileRef = 52F6EF0828E9FC4100A44565 /* play.json */; };
 		52F6EF0B28E9FC8D00A44565 /* book.json in Resources */ = {isa = PBXBuildFile; fileRef = 52F6EF0A28E9FC8D00A44565 /* book.json */; };
@@ -112,8 +110,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52F6EEED28E9E07800A44565 /* Lottie in Frameworks */,
-				52F6EEEA28E876CA00A44565 /* Liquid in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,8 +406,6 @@
 			);
 			name = "Memo (iOS)";
 			packageProductDependencies = (
-				52F6EEE928E876CA00A44565 /* Liquid */,
-				52F6EEEC28E9E07800A44565 /* Lottie */,
 			);
 			productName = "Memo (iOS)";
 			productReference = 5250E11F28016A06003D53C2 /* Memo.app */;
@@ -678,6 +672,7 @@
 				DEVELOPMENT_TEAM = U6U7U5CXA5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -692,9 +687,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.denchiklut.memo.Memo;
 				PRODUCT_NAME = Memo;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -708,6 +707,7 @@
 				DEVELOPMENT_TEAM = U6U7U5CXA5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -722,9 +722,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.denchiklut.memo.Memo;
 				PRODUCT_NAME = Memo;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -835,19 +839,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		52F6EEE928E876CA00A44565 /* Liquid */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 52F6EEE828E876C900A44565 /* XCRemoteSwiftPackageReference "liquid" */;
-			productName = Liquid;
-		};
-		52F6EEEC28E9E07800A44565 /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 52F6EEEB28E9E07800A44565 /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = Lottie;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5250E113280169FE003D53C2 /* Project object */;
 }
