@@ -39,7 +39,7 @@ struct Language: View {
                             Image(systemName: selected == index ? "largecircle.fill.circle" : "circle")
                                 .resizable()
                                 .scaledToFit()
-                                .foregroundColor(.pink)
+                                .foregroundColor(.accentColor)
                                 .frame(width: 20, height: 20)
                         }
                         .frame(maxWidth: .infinity)

@@ -73,7 +73,7 @@ struct StrechyHeader: View {
                         VStack(spacing: 5) {
                             Image(systemName: "rectangle.portrait.and.arrow.right")
                                 .padding(8)
-                                .background(.pink)
+                                .background(Color.accentColor)
                                 .foregroundColor(.white)
                                 .clipShape(Circle())
                         }

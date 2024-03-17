@@ -35,7 +35,6 @@ struct HomeView: View {
                 }
                 .tag(Tabs.words)
         }
-        .accentColor(.pink)
     }
 }
 

@@ -46,6 +46,7 @@
 		52CB910B2BA3335A00FEE701 /* Shakable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB910A2BA3335A00FEE701 /* Shakable.swift */; };
 		52EF78FE2BA4B0FB00E7C274 /* ThemePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EF78FD2BA4B0FB00E7C274 /* ThemePicker.swift */; };
 		52EF79022BA733A000E7C274 /* ColorMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EF79012BA733A000E7C274 /* ColorMode.swift */; };
+		52EF79062BA76A5B00E7C274 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EF79052BA76A5B00E7C274 /* Color.swift */; };
 		52F6EEE128E873DF00A44565 /* TranslateWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6EEE028E873DF00A44565 /* TranslateWord.swift */; };
 		52F6EEE328E873F300A44565 /* WordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6EEE228E873F300A44565 /* WordBuilder.swift */; };
 		52F6EEE528E8740E00A44565 /* WordListen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6EEE428E8740E00A44565 /* WordListen.swift */; };
@@ -92,6 +93,7 @@
 		52CB910A2BA3335A00FEE701 /* Shakable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shakable.swift; sourceTree = "<group>"; };
 		52EF78FD2BA4B0FB00E7C274 /* ThemePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePicker.swift; sourceTree = "<group>"; };
 		52EF79012BA733A000E7C274 /* ColorMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMode.swift; sourceTree = "<group>"; };
+		52EF79052BA76A5B00E7C274 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		52F6EEE028E873DF00A44565 /* TranslateWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateWord.swift; sourceTree = "<group>"; };
 		52F6EEE228E873F300A44565 /* WordBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBuilder.swift; sourceTree = "<group>"; };
 		52F6EEE428E8740E00A44565 /* WordListen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListen.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				5250E13E2801727B003D53C2 /* View.swift */,
 				5250E14228017381003D53C2 /* Border.swift */,
 				5245CD3A2B94A64700B9A75D /* Date.swift */,
+				52EF79052BA76A5B00E7C274 /* Color.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				5244453C2B976D6100DB2842 /* Chip.swift in Sources */,
 				52EF79022BA733A000E7C274 /* ColorMode.swift in Sources */,
 				52F6EEE528E8740E00A44565 /* WordListen.swift in Sources */,
+				52EF79062BA76A5B00E7C274 /* Color.swift in Sources */,
 				5250E15A280315E8003D53C2 /* Trainings.swift in Sources */,
 				5250E16128032319003D53C2 /* Level.swift in Sources */,
 				52CB910B2BA3335A00FEE701 /* Shakable.swift in Sources */,
