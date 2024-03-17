@@ -7,17 +7,14 @@
 
 import SwiftUI
 
-// import Firebase
-
 @main
 struct MemoApp: App {
-    init() {
-//        FirebaseApp.configure()
-    }
+    @AppStorage("color_mode") private var colorMode: ColorMode = .system
 
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .preferredColorScheme(colorMode.scheme)
         }
     }
 }

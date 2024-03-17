@@ -12,7 +12,6 @@ enum Tabs {
 }
 
 struct HomeView: View {
-    @AppStorage("darkMode") var darkMode: Bool = true
     @State var currentTub: Tabs = .trainging
 
     var body: some View {
@@ -37,12 +36,12 @@ struct HomeView: View {
                 .tag(Tabs.words)
         }
         .accentColor(.pink)
-        .preferredColorScheme(darkMode ? .dark : .light)
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .preferredColorScheme(.dark)
     }
 }

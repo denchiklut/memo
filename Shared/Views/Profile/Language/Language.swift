@@ -64,7 +64,6 @@ struct Language: View {
         }
         .padding()
         .background(Color("BackgroundColor"))
-        .preferredColorScheme(.dark)
     }
 }
 

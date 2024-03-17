@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct StrechyHeader: View {
-//    @AppStorage("darkMode") var darkMode = false
     var image: String
     
     var body: some View {
