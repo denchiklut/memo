@@ -47,6 +47,8 @@
 		52EF78FE2BA4B0FB00E7C274 /* ThemePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EF78FD2BA4B0FB00E7C274 /* ThemePicker.swift */; };
 		52EF79022BA733A000E7C274 /* ColorMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EF79012BA733A000E7C274 /* ColorMode.swift */; };
 		52EF79062BA76A5B00E7C274 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EF79052BA76A5B00E7C274 /* Color.swift */; };
+		52EF79082BA8BC7900E7C274 /* AccentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EF79072BA8BC7900E7C274 /* AccentPicker.swift */; };
+		52EF790A2BA8BCCB00E7C274 /* DarkModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EF79092BA8BCCB00E7C274 /* DarkModePicker.swift */; };
 		52F6EEE128E873DF00A44565 /* TranslateWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6EEE028E873DF00A44565 /* TranslateWord.swift */; };
 		52F6EEE328E873F300A44565 /* WordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6EEE228E873F300A44565 /* WordBuilder.swift */; };
 		52F6EEE528E8740E00A44565 /* WordListen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6EEE428E8740E00A44565 /* WordListen.swift */; };
@@ -94,6 +96,8 @@
 		52EF78FD2BA4B0FB00E7C274 /* ThemePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePicker.swift; sourceTree = "<group>"; };
 		52EF79012BA733A000E7C274 /* ColorMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMode.swift; sourceTree = "<group>"; };
 		52EF79052BA76A5B00E7C274 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		52EF79072BA8BC7900E7C274 /* AccentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentPicker.swift; sourceTree = "<group>"; };
+		52EF79092BA8BCCB00E7C274 /* DarkModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModePicker.swift; sourceTree = "<group>"; };
 		52F6EEE028E873DF00A44565 /* TranslateWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateWord.swift; sourceTree = "<group>"; };
 		52F6EEE228E873F300A44565 /* WordBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBuilder.swift; sourceTree = "<group>"; };
 		52F6EEE428E8740E00A44565 /* WordListen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListen.swift; sourceTree = "<group>"; };
@@ -253,8 +257,10 @@
 		5250E14D280188E1003D53C2 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				5250E14E280188F2003D53C2 /* Settings.swift */,
+				52EF79072BA8BC7900E7C274 /* AccentPicker.swift */,
+				52EF79092BA8BCCB00E7C274 /* DarkModePicker.swift */,
 				52EF78FD2BA4B0FB00E7C274 /* ThemePicker.swift */,
+				5250E14E280188F2003D53C2 /* Settings.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -490,6 +496,7 @@
 				5250E14F280188F2003D53C2 /* Settings.swift in Sources */,
 				5250E14328017381003D53C2 /* Border.swift in Sources */,
 				5283C8D62815AEAC00AE3E1F /* PageView.swift in Sources */,
+				52EF79082BA8BC7900E7C274 /* AccentPicker.swift in Sources */,
 				526ACC5F28086B6B008BE039 /* Language.swift in Sources */,
 				5283C8D22815A1D600AE3E1F /* PageViewController.swift in Sources */,
 				5245CD3B2B94A64700B9A75D /* Date.swift in Sources */,
@@ -513,6 +520,7 @@
 				524445392B97586500DB2842 /* ChartLegends.swift in Sources */,
 				5296F36A2B9D063D00F9C7EF /* RangeButton.swift in Sources */,
 				5296F36F2B9E180500F9C7EF /* RangeChart.swift in Sources */,
+				52EF790A2BA8BCCB00E7C274 /* DarkModePicker.swift in Sources */,
 				52CB91082BA319C000FEE701 /* ChartTooltip.swift in Sources */,
 				5250E12828016A06003D53C2 /* MemoApp.swift in Sources */,
 				52F6EEE328E873F300A44565 /* WordBuilder.swift in Sources */,

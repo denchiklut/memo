@@ -12,20 +12,27 @@ struct Stats: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text(statsVM.getTitle())
-                .fontWeight(.bold)
-                .padding(.bottom)
+            Text("Statistics")
+                .padding(.horizontal)
+                .font(.subheadline)
+                .foregroundColor(.secondary)
 
-            StatChart(statsVM: statsVM)
+            VStack(alignment: .leading) {
+                Text(statsVM.getTitle())
+                    .fontWeight(.bold)
+                    .padding(.bottom)
 
-            StatsRange(statsVM: statsVM)
-                .padding(.top)
+                StatChart(statsVM: statsVM)
 
-            ChartLegends(statsVM: statsVM)
-                .padding(.top)
+                StatsRange(statsVM: statsVM)
+                    .padding(.top)
+
+                ChartLegends(statsVM: statsVM)
+                    .padding(.top)
+            }
+            .padding()
+            .background(Color("PaperColor"))
         }
-        .padding()
-        .background(Color("PaperColor"))
     }
 }
 
