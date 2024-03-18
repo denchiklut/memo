@@ -7,17 +7,16 @@
 
 import SwiftUI
 
-// import Firebase
-
 @main
 struct MemoApp: App {
-    init() {
-//        FirebaseApp.configure()
-    }
+    @AppStorage("color_mode") private var colorMode: ColorMode = .system
+    @AppStorage("accent_color") var accentColor: String = "pink"
 
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .accentColor(Color.from(name: accentColor))
+                .preferredColorScheme(colorMode.scheme)
         }
     }
 }

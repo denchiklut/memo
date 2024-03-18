@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct StrechyHeader: View {
-//    @AppStorage("darkMode") var darkMode = false
     var image: String
     
     var body: some View {
@@ -74,7 +73,7 @@ struct StrechyHeader: View {
                         VStack(spacing: 5) {
                             Image(systemName: "rectangle.portrait.and.arrow.right")
                                 .padding(8)
-                                .background(.pink)
+                                .background(Color.accentColor)
                                 .foregroundColor(.white)
                                 .clipShape(Circle())
                         }

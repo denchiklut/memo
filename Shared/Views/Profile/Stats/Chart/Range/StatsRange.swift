@@ -9,7 +9,6 @@ import Charts
 import SwiftUI
 
 struct StatsRange: View {
-    @AppStorage("darkMode") var darkMode = false
     @ObservedObject var statsVM: StatsVM
     
     @State private var initialDragPosition: CGFloat? = nil

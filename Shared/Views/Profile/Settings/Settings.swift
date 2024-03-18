@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct Settings: View {
-    @AppStorage("darkMode") var darkMode = false
     @State var isOpen = false
 
     var body: some View {
@@ -33,33 +32,11 @@ struct Settings: View {
             }
 
             VStack(spacing: 0) {
-                HStack {
-                    Toggle(isOn: $darkMode) {
-                        Text("Dark mode")
-                    }
-                }
-                .padding()
-                .background(Color("PaperColor"))
-                .border(width: 0.4, edges: [.top, .bottom], color: Color("BorderColor"))
-
-                ForEach(items, id: \.self) { item in
-                    HStack {
-                        Text(item)
-                            .padding(.vertical, 4)
-                        Spacer()
-                    }
-                    .padding()
-                    .background(Color("PaperColor"))
-                    .border(width: 0.4, edges: [.bottom], color: Color("BorderColor"))
-                }
+                ThemePicker()
             }
         }
     }
 }
-
-let items = [
-    "Востановить покупки"
-]
 
 struct Settings_Previews: PreviewProvider {
     static var previews: some View {

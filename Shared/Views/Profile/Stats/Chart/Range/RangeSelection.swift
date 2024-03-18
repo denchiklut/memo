@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RangeSelection: View {
-    @AppStorage("darkMode") var darkMode = false
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var statsVM: StatsVM
 
     let fullWidth: CGFloat
@@ -16,7 +16,7 @@ struct RangeSelection: View {
     var body: some View {
         Rectangle()
             .fill(LinearGradient(
-                gradient: Gradient(stops: [.init(color: darkMode ? Color.black.opacity(0.2) : Color(#colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)).opacity(0.5), location: 0)]),
+                gradient: Gradient(stops: [.init(color: colorScheme == .dark ? Color.black.opacity(0.2) : Color(#colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)).opacity(0.5), location: 0)]),
                 startPoint: .leading,
                 endPoint: .trailing
             ))
@@ -25,7 +25,7 @@ struct RangeSelection: View {
 
         Rectangle()
             .fill(LinearGradient(
-                gradient: Gradient(stops: [.init(color: darkMode ? Color.black.opacity(0.2) : Color(#colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)).opacity(0.5), location: 0)]),
+                gradient: Gradient(stops: [.init(color: colorScheme == .dark ? Color.black.opacity(0.2) : Color(#colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)).opacity(0.5), location: 0)]),
                 startPoint: .leading,
                 endPoint: .trailing
             ))
