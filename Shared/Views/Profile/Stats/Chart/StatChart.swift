@@ -67,14 +67,8 @@ struct StatChart: View {
             .chartYAxis {
                 AxisMarks(preset: .aligned, position: .leading)
             }
-            .onChange(of: selected) { _, date in
-                if let date {
-                    selectedData = statsVM.getStat(for: date)
-                }
-
-                if selected == nil {
-                    selectedData = nil
-                }
+            .onChange(of: selected) { _, newSelected in
+                selectedData = newSelected.flatMap { statsVM.getStat(for: $0) }
             }
             .onChange(of: selectedData) { _, _ in
                 let generator = UIImpactFeedbackGenerator(style: .rigid)
@@ -83,7 +77,6 @@ struct StatChart: View {
             }
             .frame(height: 180)
         }
-
         .animation(.easeInOut, value: statsVM.rangeStart)
         .animation(.easeInOut, value: statsVM.rangeEnd)
         .animation(.easeInOut, value: statsVM.showAddedData)
