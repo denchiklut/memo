@@ -8,8 +8,8 @@
 import Foundation
 
 class StatsVM: ObservableObject {
-    @Published var rangeStart: CGFloat = 0.2
-    @Published var rangeEnd: CGFloat = 0.8
+    @Published var rangeStart: CGFloat = 0.8
+    @Published var rangeEnd: CGFloat = 1
     @Published var showAddedData = true
     @Published var showLearnedData = true
     

@@ -1,4 +1,5 @@
 {
+  "originHash" : "9970aa23b37ff68eaed325a0c395e209708eff7870e9f802a8b3de29ba315d2c",
   "pins" : [
     {
       "identity" : "liquid",
@@ -19,5 +20,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

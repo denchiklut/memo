@@ -11,16 +11,18 @@ import SwiftUI
 struct StatChart: View {
     @ObservedObject var statsVM: StatsVM
     @State private var selectedData: ProgresStat?
-    @State private var locationX: CGFloat?
+    @State private var selected: Date?
 
     var body: some View {
-        ZStack(alignment: .top) {
+        let data: [ProgresStat] = statsVM.filteredData()
+
+        return ZStack(alignment: .top) {
             Chart {
-                RuleMark(y: .value("Avg", 15))
+                RuleMark(y: .value("Avg", 5))
                     .foregroundStyle(.blue)
                     .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
 
-                ForEach(statsVM.filteredData()) { stat in
+                ForEach(data) { stat in
                     if statsVM.showLearnedData {
                         BarMark(
                             x: .value("Day", stat.date, unit: .day),
@@ -39,45 +41,49 @@ struct StatChart: View {
                         .opacity(selectedData == nil ? 1 : selectedData?.id != stat.id ? 0.6 : 1)
                     }
                 }
+
+                if let selected, let selectedData {
+                    RuleMark(x: .value("Day", selected))
+                        .foregroundStyle(Color("BorderColor").opacity(0))
+                        .annotation(
+                            position: .top,
+                            overflowResolution: .init(x: .fit(to: .chart), y: .disabled)
+                        ) {
+                            ChartTooltip(selectedStat: selectedData)
+                                .offset(y: 64)
+                        }
+                }
             }
+            .chartXSelection(value: $selected)
             .chartXAxis {
-                AxisMarks(preset: .aligned) {
-                    AxisValueLabel()
+                AxisMarks(
+                    preset: .automatic,
+                    position: .bottom,
+                    values: data.count < 5 ? .stride(by: .day) : .automatic
+                ) {
+                    AxisValueLabel(format: .dateTime.day().month(), centered: data.count < 5)
                 }
             }
             .chartYAxis {
                 AxisMarks(preset: .aligned, position: .leading)
             }
-            .frame(height: 180)
-            .chartOverlay { proxy in
-                GeometryReader { _ in
-                    Rectangle()
-                        .fill(Color.clear)
-                        .contentShape(Rectangle())
-                        .onTapGesture { selectedData = nil }
-                        .gesture(
-                            DragGesture(minimumDistance: 0)
-                                .onChanged { value in
-                                    let location = value.location
-                                    if let date: Date = proxy.value(atX: location.x) {
-                                        selectedData = statsVM.getStat(for: date)
-                                        locationX = location.x
-                                    }
-                                }
-                                .onEnded { _ in selectedData = nil }
-                        )
+            .onChange(of: selected) { _, date in
+                if let date {
+                    selectedData = statsVM.getStat(for: date)
+                }
+
+                if selected == nil {
+                    selectedData = nil
                 }
             }
-            .onChange(of: selectedData) { _ in
+            .onChange(of: selectedData) { _, _ in
                 let generator = UIImpactFeedbackGenerator(style: .rigid)
                 generator.prepare()
                 generator.impactOccurred()
             }
-
-            if let centerX = locationX, let selectedStat = selectedData {
-                ChartTooltip(centerX: centerX, selectedStat: selectedStat)
-            }
+            .frame(height: 180)
         }
+
         .animation(.easeInOut, value: statsVM.rangeStart)
         .animation(.easeInOut, value: statsVM.rangeEnd)
         .animation(.easeInOut, value: statsVM.showAddedData)
@@ -86,7 +92,6 @@ struct StatChart: View {
 }
 
 #Preview {
-    StatChart(statsVM: StatsVM())
+    Stats()
         .frame(height: 180)
-        .padding()
 }
