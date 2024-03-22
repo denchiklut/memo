@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Trainings: View {
+    @AppStorage("accent_color") var accentColor: String = "pink"
+
     var body: some View {
         ZStack(alignment: .top) {
             Color("BackgroundColor")
@@ -54,5 +56,6 @@ struct Trainings_Previews: PreviewProvider {
     static var previews: some View {
         Trainings()
             .preferredColorScheme(.dark)
+            .accentColor(.pink)
     }
 }

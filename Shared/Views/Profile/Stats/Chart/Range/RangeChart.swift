@@ -9,6 +9,7 @@ import Charts
 import SwiftUI
 
 struct RangeChart: View {
+    @AppStorage("accent_color") var accentColor: String = "pink"
     let data: [ProgresStat]
 
     var body: some View {
@@ -18,7 +19,7 @@ struct RangeChart: View {
                     x: .value("Day", stat.date, unit: .day),
                     y: .value("Learned", stat.learned)
                 )
-                .foregroundStyle(.pink.gradient)
+                .foregroundStyle(Color.from(name: accentColor).gradient)
 
                 BarMark(
                     x: .value("Day", stat.date, unit: .day),

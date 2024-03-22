@@ -12,6 +12,7 @@ struct StatChart: View {
     @ObservedObject var statsVM: StatsVM
     @State private var selectedData: ProgresStat?
     @State private var selected: Date?
+    @AppStorage("accent_color") var accentColor: String = "pink"
 
     var body: some View {
         let data: [ProgresStat] = statsVM.filteredData()
@@ -28,7 +29,7 @@ struct StatChart: View {
                             x: .value("Day", stat.date, unit: .day),
                             y: .value("Learned", stat.learned)
                         )
-                        .foregroundStyle(.pink.gradient)
+                        .foregroundStyle(Color.from(name: accentColor).gradient)
                         .opacity(selectedData == nil ? 1 : selectedData?.id != stat.id ? 0.6 : 1)
                     }
 
