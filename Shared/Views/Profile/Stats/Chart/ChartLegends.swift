@@ -10,7 +10,7 @@ import SwiftUI
 struct ChartLegends: View {
     @ObservedObject var statsVM: StatsVM
     @AppStorage("accent_color") var accentColor: String = "pink"
-    
+
     var body: some View {
         HStack(spacing: 10) {
             Toggle(isOn: $statsVM.showLearnedData) {

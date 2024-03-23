@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ChartTooltip: View {
     @Environment(\.colorScheme) var colorScheme
-    @AppStorage("accent_color") var accentColor: String = "pink"
-    
     var selectedStat: ProgresStat
 
     var body: some View {
@@ -36,7 +34,7 @@ struct ChartTooltip: View {
                     .foregroundColor(.secondary)
                 Spacer()
                 Text("\(selectedStat.learned)")
-                    .foregroundColor(Color.from(name: accentColor))
+                    .foregroundColor(.accentColor)
             }
         }
         .padding(.horizontal)
