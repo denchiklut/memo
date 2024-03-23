@@ -9,13 +9,14 @@ import SwiftUI
 
 struct ChartLegends: View {
     @ObservedObject var statsVM: StatsVM
+    @AppStorage("accent_color") var accentColor: String = "pink"
 
     var body: some View {
         HStack(spacing: 10) {
             Toggle(isOn: $statsVM.showLearnedData) {
                 Text("Learned")
             }
-            .toggleStyle(ChipToggleStyle(color: .pink))
+            .toggleStyle(ChipToggleStyle(color: Color.from(name: accentColor)))
             .disabled(!statsVM.showAddedData)
             .shakeable(!statsVM.showAddedData)
 

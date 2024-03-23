@@ -18,7 +18,7 @@ struct RangeChart: View {
                     x: .value("Day", stat.date, unit: .day),
                     y: .value("Learned", stat.learned)
                 )
-                .foregroundStyle(.pink.gradient)
+                .foregroundStyle(Color.accentColor.gradient)
 
                 BarMark(
                     x: .value("Day", stat.date, unit: .day),

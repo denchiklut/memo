@@ -8,53 +8,46 @@
 import SwiftUI
 
 struct ChartTooltip: View {
-    var centerX: CGFloat
+    @Environment(\.colorScheme) var colorScheme
     var selectedStat: ProgresStat
 
     var body: some View {
-        GeometryReader { geometry in
-            VStack(alignment: .leading) {
-                Text(selectedStat.date, format: .dateTime.day().month().year())
-                    .font(.subheadline)
-                    .fontWeight(.bold)
-                Divider()
+        let bgColor = colorScheme == .dark ? #colorLiteral(red: 0.1298420429, green: 0.1298461258, blue: 0.1298439503, alpha: 1) : #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
+        let color = colorScheme == .dark ? #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1) : #colorLiteral(red: 0.2605174184, green: 0.2605243921, blue: 0.260520637, alpha: 1)
 
-                HStack {
-                    Text("Added:")
-                        .foregroundColor(.secondary)
-                    Spacer()
-                    Text("\(selectedStat.added)")
-                        .foregroundColor(.blue)
-                }
-                HStack {
-                    Text("Learned:")
-                        .foregroundColor(.secondary)
-                    Spacer()
-                    Text("\(selectedStat.learned)")
-                        .foregroundColor(.pink)
-                }
+        return VStack(alignment: .leading) {
+            Text(selectedStat.date, format: .dateTime.day().month().year())
+                .font(.subheadline)
+                .fontWeight(.bold)
+                .foregroundColor(Color(color))
+            Divider()
+
+            HStack {
+                Text("Added:")
+                    .foregroundColor(.secondary)
+                Spacer()
+                Text("\(selectedStat.added)")
+                    .foregroundColor(.blue)
             }
-            .padding(.horizontal)
-            .padding(.vertical, 16)
-            .frame(maxWidth: 200)
-            .background(.ultraThinMaterial)
-            .cornerRadius(5)
-            .shadow(radius: 2)
-            .position(x: adjustedTooltipPosition(centerX: centerX, tooltipWidth: 150, chartWidth: geometry.size.width))
+            HStack {
+                Text("Learned:")
+                    .foregroundColor(.secondary)
+                Spacer()
+                Text("\(selectedStat.learned)")
+                    .foregroundColor(.accentColor)
+            }
         }
-    }
-
-    private func adjustedTooltipPosition(centerX: CGFloat, tooltipWidth: CGFloat, chartWidth: CGFloat) -> CGFloat {
-        let halfTooltipWidth = (tooltipWidth + 40) / 2
-        let adjustedLeft = max(centerX, halfTooltipWidth)
-        let adjustedRight = min(adjustedLeft, chartWidth - halfTooltipWidth)
-
-        return adjustedRight
+        .padding(.horizontal)
+        .padding(.vertical, 16)
+        .frame(width: 200)
+        .background(Color(bgColor), in: .rect(cornerRadius: 5))
+        .shadow(radius: 2)
     }
 }
 
 #Preview {
-    ChartTooltip(centerX: 0, selectedStat: StatsVM().stats.first!)
-        .padding(.top, 200)
-        .offset(x: 100)
+    Color("PaperColor")
+        .overlay {
+            ChartTooltip(selectedStat: StatsVM().stats.first!)
+        }
 }

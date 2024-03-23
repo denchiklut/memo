@@ -21,5 +21,6 @@ struct Learn_Previews: PreviewProvider {
     static var previews: some View {
         Learn()
             .preferredColorScheme(.dark)
+            .accentColor(.pink)
     }
 }
