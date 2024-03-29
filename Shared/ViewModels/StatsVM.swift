@@ -6,14 +6,16 @@
 //
 
 import Foundation
+import Observation
 
+@Observable
 class StatsVM: ObservableObject {
-    @Published var rangeStart: CGFloat = 0.6
-    @Published var rangeEnd: CGFloat = 1
-    @Published var showAddedData = true
-    @Published var showLearnedData = true
+    var rangeStart: CGFloat = 0.6
+    var rangeEnd: CGFloat = 1
+    var showAddedData = true
+    var showLearnedData = true
     
-    @Published var stats: [ProgresStat] = [
+    var stats: [ProgresStat] = [
         .init(date: Date.from(year: 2023, month: 10, day: 1), added: 10, learned: 10),
         .init(date: Date.from(year: 2023, month: 10, day: 2), added: 14, learned: 5),
         .init(date: Date.from(year: 2023, month: 10, day: 3), added: 16, learned: 16),
@@ -33,7 +35,7 @@ class StatsVM: ObservableObject {
         .init(date: Date.from(year: 2023, month: 10, day: 17), added: 1, learned: 16),
     ]
     
-    func filteredData() -> [ProgresStat] {
+    var filteredData: [ProgresStat] {
         let sortedData = stats.sorted { $0.date < $1.date }
         guard let firstDate = sortedData.first?.date, let lastDate = sortedData.last?.date else { return [] }
         
@@ -46,7 +48,7 @@ class StatsVM: ObservableObject {
         
         return sortedData.filter { $0.date >= startDate && $0.date <= endDate }
     }
-    
+
     func getTitle() -> String {
         let dateFormatter: DateFormatter = {
             let formatter = DateFormatter()

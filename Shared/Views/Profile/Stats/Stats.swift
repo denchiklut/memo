@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Stats: View {
-    @StateObject var statsVM = StatsVM()
+    @State var statsVM = StatsVM()
 
     var body: some View {
         VStack(alignment: .leading) {

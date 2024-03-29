@@ -14,70 +14,9 @@ struct Trainings: View {
 
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
-                    VStack {
-                        VStack {
-                            HStack {
-                                VStack {
-                                    HStack {
-                                        Text("Learned today:")
-                                        Spacer()
-                                    }
-                                    HStack {
-                                        HStack(alignment: .lastTextBaseline, spacing: 0) {
-                                            Text("0")
-                                                .font(.largeTitle)
-                                                .fontWeight(.bold)
-                                                .foregroundColor(.accentColor)
-                                            Text("/10")
-                                        }
-                                        Image(systemName: "pencil")
-                                        Spacer()
-                                    }
-                                }
-
-                                Image(systemName: "trophy")
-                                    .font(.largeTitle)
-                            }
-                            .padding()
-                            .background(.thinMaterial, in: .rect(cornerRadius: 10))
-                            .padding(.bottom, 8)
-
-                            LazyVGrid(columns: [.init(), .init(), .init()]) {
-                                VStack {
-                                    Text("Total Words")
-                                        .font(.caption)
-                                    Text("560")
-                                        .font(.title)
-                                        .fontWeight(.bold)
-                                }
-
-                                VStack {
-                                    Text("To repeat")
-                                        .font(.caption)
-                                    Text("302")
-                                        .font(.title)
-                                        .fontWeight(.bold)
-                                }
-                                VStack {
-                                    Text("Learnt")
-                                        .font(.caption)
-                                    Text("287")
-                                        .font(.title)
-                                        .fontWeight(.bold)
-                                }
-                            }
-
-                            Button(action: {}) {
-                                Text("Repeat words")
-                            }
-                            .buttonStyle(.borderedProminent)
-                            .padding(.vertical)
-                        }
-                        .padding()
-                        .background(Color("PaperColor"), in: .rect(cornerRadius: 10))
-                    }
-                    .padding(.top, 100)
-                    .padding(.bottom, 24)
+                    LearnStats()
+                        .padding(.top, 100)
+                        .padding(.bottom, 24)
 
                     HStack {
                         Text("Trainings")

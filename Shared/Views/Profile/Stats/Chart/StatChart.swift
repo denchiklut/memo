@@ -9,20 +9,18 @@ import Charts
 import SwiftUI
 
 struct StatChart: View {
-    @ObservedObject var statsVM: StatsVM
+    @Bindable var statsVM: StatsVM
     @State private var selectedData: ProgresStat?
     @State private var selected: Date?
 
     var body: some View {
-        let data: [ProgresStat] = statsVM.filteredData()
-
         return ZStack(alignment: .top) {
             Chart {
                 RuleMark(y: .value("Avg", 5))
                     .foregroundStyle(.blue)
                     .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
 
-                ForEach(data) { stat in
+                ForEach(statsVM.filteredData) { stat in
                     if statsVM.showLearnedData {
                         BarMark(
                             x: .value("Day", stat.date, unit: .day),
@@ -59,9 +57,9 @@ struct StatChart: View {
                 AxisMarks(
                     preset: .automatic,
                     position: .bottom,
-                    values: data.count < 5 ? .stride(by: .day) : .automatic
+                    values: statsVM.filteredData.count < 5 ? .stride(by: .day) : .automatic
                 ) {
-                    AxisValueLabel(format: .dateTime.day().month(), centered: data.count < 5)
+                    AxisValueLabel(format: .dateTime.day().month(), centered: statsVM.filteredData.count < 5)
                 }
             }
             .chartYAxis {
