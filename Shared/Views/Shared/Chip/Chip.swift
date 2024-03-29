@@ -47,6 +47,11 @@ extension ToggleStyle where Self == ChipToggleStyle {
             Text("Label")
         }
         .toggleStyle(.chip)
+
+        Toggle(isOn: .constant(false)) {
+            Text("Label")
+        }
+        .toggleStyle(.chip)
         .disabled(true)
         .shakeable(true)
     }
