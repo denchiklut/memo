@@ -36,23 +36,26 @@ extension ToggleStyle where Self == ChipToggleStyle {
 }
 
 #Preview {
-    HStack {
-        Toggle(isOn: .constant(true)) {
-            Text("Label")
-        }
-        .toggleStyle(.chip)
-        .tint(.pink)
+    struct ChipDemo: View {
+        @State var isSelected = true
 
-        Toggle(isOn: .constant(false)) {
-            Text("Label")
-        }
-        .toggleStyle(.chip)
+        var body: some View {
+            HStack {
+                Toggle(isOn: $isSelected) {
+                    Text("Label")
+                }
+                .toggleStyle(.chip)
+                .tint(.pink)
 
-        Toggle(isOn: .constant(false)) {
-            Text("Label")
+                Toggle(isOn: .constant(false)) {
+                    Text("Label")
+                }
+                .toggleStyle(.chip)
+                .disabled(true)
+                .shakeable(true)
+            }
         }
-        .toggleStyle(.chip)
-        .disabled(true)
-        .shakeable(true)
     }
+
+    return ChipDemo()
 }
