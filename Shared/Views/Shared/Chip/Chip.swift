@@ -16,14 +16,14 @@ struct ChipToggleStyle: ToggleStyle {
                 .font(.system(size: 16))
                 .padding(.vertical, 4)
                 .padding(.horizontal, 20)
-                .foregroundColor(configuration.isOn ? .white : nil)
+                .if(configuration.isOn) { $0.foregroundColor(.white) }
                 .background(RoundedRectangle(cornerRadius: 20)
-                    .fill(.tint)
+                    .fill(.foreground)
                     .opacity(configuration.isOn ? 1 : 0)
                 )
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
-                        .stroke(.tint, lineWidth: 1)
+                        .stroke(.foreground, lineWidth: 1)
                 )
         }
     }
@@ -45,7 +45,7 @@ extension ToggleStyle where Self == ChipToggleStyle {
                     Text("Label")
                 }
                 .toggleStyle(.chip)
-                .tint(.pink)
+                .foregroundStyle(.pink)
 
                 Toggle(isOn: .constant(false)) {
                     Text("Label")

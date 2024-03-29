@@ -17,7 +17,7 @@ struct ChartLegends: View {
                 Text("Learned")
             }
             .toggleStyle(.chip)
-            .tint(Color.from(name: accentColor))
+            .foregroundStyle(Color.from(name: accentColor))
             .disabled(!statsVM.showAddedData)
             .shakeable(!statsVM.showAddedData)
 
@@ -25,7 +25,7 @@ struct ChartLegends: View {
                 Text("Added")
             }
             .toggleStyle(.chip)
-            .tint(.blue)
+            .foregroundStyle(.blue)
             .disabled(!statsVM.showLearnedData)
             .shakeable(!statsVM.showLearnedData)
         }

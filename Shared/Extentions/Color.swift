@@ -8,8 +8,8 @@
 import SwiftUI
 
 extension Color {
-    static func from(name colorName: String) -> Color {
-        switch colorName {
+    static func from(name: String) -> Color {
+        switch name {
         case "red": return .red
         case "orange": return .orange
         case "yellow": return .yellow
@@ -21,7 +21,7 @@ extension Color {
         case "indigo": return .indigo
         case "purple": return .purple
         case "pink": return .pink
-        default: return Color(colorName)
+        default: return Color(name)
         }
     }
 }
