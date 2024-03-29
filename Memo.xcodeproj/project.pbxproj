@@ -459,8 +459,6 @@
 			);
 			mainGroup = 5250E112280169FE003D53C2;
 			packageReferences = (
-				52F6EEE828E876C900A44565 /* XCRemoteSwiftPackageReference "liquid" */,
-				52F6EEEB28E9E07800A44565 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 5250E12028016A06003D53C2 /* Products */;
 			projectDirPath = "";
@@ -826,25 +824,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		52F6EEE828E876C900A44565 /* XCRemoteSwiftPackageReference "liquid" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/maustinstar/liquid";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		52F6EEEB28E9E07800A44565 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-ios";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 5250E113280169FE003D53C2 /* Project object */;
 }
