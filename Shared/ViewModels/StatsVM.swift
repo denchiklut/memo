@@ -35,7 +35,7 @@ class StatsVM: ObservableObject {
         .init(date: Date.from(year: 2023, month: 10, day: 17), added: 1, learned: 16),
     ]
     
-    func filteredData() -> [ProgresStat] {
+    var filteredData: [ProgresStat] {
         let sortedData = stats.sorted { $0.date < $1.date }
         guard let firstDate = sortedData.first?.date, let lastDate = sortedData.last?.date else { return [] }
         
@@ -48,7 +48,7 @@ class StatsVM: ObservableObject {
         
         return sortedData.filter { $0.date >= startDate && $0.date <= endDate }
     }
-    
+
     func getTitle() -> String {
         let dateFormatter: DateFormatter = {
             let formatter = DateFormatter()
