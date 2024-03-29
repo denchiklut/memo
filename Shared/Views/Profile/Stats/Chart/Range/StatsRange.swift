@@ -9,7 +9,7 @@ import Charts
 import SwiftUI
 
 struct StatsRange: View {
-    @ObservedObject var statsVM: StatsVM
+    @Bindable var statsVM: StatsVM
     
     @State private var initialDragPosition: CGFloat? = nil
     @State private var initialRangeStart: CGFloat = 0.0

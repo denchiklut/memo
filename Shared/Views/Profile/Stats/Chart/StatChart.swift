@@ -9,7 +9,7 @@ import Charts
 import SwiftUI
 
 struct StatChart: View {
-    @ObservedObject var statsVM: StatsVM
+    @Bindable var statsVM: StatsVM
     @State private var selectedData: ProgresStat?
     @State private var selected: Date?
 

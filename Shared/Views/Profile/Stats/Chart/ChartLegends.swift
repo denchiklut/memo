@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChartLegends: View {
-    @ObservedObject var statsVM: StatsVM
+    @Bindable var statsVM: StatsVM
     @AppStorage("accent_color") var accentColor: String = "pink"
 
     var body: some View {
@@ -16,14 +16,16 @@ struct ChartLegends: View {
             Toggle(isOn: $statsVM.showLearnedData) {
                 Text("Learned")
             }
-            .toggleStyle(ChipToggleStyle(color: Color.from(name: accentColor)))
+            .toggleStyle(.chip)
+            .tint(Color.from(name: accentColor))
             .disabled(!statsVM.showAddedData)
             .shakeable(!statsVM.showAddedData)
 
             Toggle(isOn: $statsVM.showAddedData) {
                 Text("Added")
             }
-            .toggleStyle(ChipToggleStyle(color: .blue))
+            .toggleStyle(.chip)
+            .tint(.blue)
             .disabled(!statsVM.showLearnedData)
             .shakeable(!statsVM.showLearnedData)
         }

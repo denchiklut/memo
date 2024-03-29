@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ChipToggleStyle: ToggleStyle {
-    var color: Color
-
     func makeBody(configuration: Configuration) -> some View {
         Button(action: {
             configuration.isOn.toggle()
@@ -18,21 +16,22 @@ struct ChipToggleStyle: ToggleStyle {
                 .font(.system(size: 16))
                 .padding(.vertical, 4)
                 .padding(.horizontal, 20)
-                .foregroundColor(configuration.isOn ? .white : color)
-                .background(configuration.isOn ? color : .clear)
+                .foregroundColor(configuration.isOn ? .white : nil)
+                .background(RoundedRectangle(cornerRadius: 20)
+                    .fill(.tint)
+                    .opacity(configuration.isOn ? 1 : 0)
+                )
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
-                        .stroke(color, lineWidth: configuration.isOn ? 0 : 1)
+                        .stroke(.tint, lineWidth: 1)
                 )
         }
-        .cornerRadius(20)
-        .contentShape(RoundedRectangle(cornerRadius: 20))
     }
 }
 
 extension ToggleStyle where Self == ChipToggleStyle {
     static var chip: ChipToggleStyle {
-        ChipToggleStyle(color: .accentColor)
+        ChipToggleStyle()
     }
 }
 
@@ -42,6 +41,7 @@ extension ToggleStyle where Self == ChipToggleStyle {
             Text("Label")
         }
         .toggleStyle(.chip)
+        .tint(.pink)
 
         Toggle(isOn: .constant(false)) {
             Text("Label")
