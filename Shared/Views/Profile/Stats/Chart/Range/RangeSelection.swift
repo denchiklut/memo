@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RangeSelection: View {
     @Environment(\.colorScheme) var colorScheme
-    @ObservedObject var statsVM: StatsVM
+    @Bindable var statsVM: StatsVM
 
     let fullWidth: CGFloat
 
