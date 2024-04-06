@@ -9,7 +9,7 @@ import Foundation
 import Observation
 
 @Observable
-class StatsVM: ObservableObject {
+class StatsVM {
     var rangeStart: CGFloat = 0.6
     var rangeEnd: CGFloat = 1
     var showAddedData = true

@@ -19,7 +19,7 @@ struct StatsRange: View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
                 Group {
-                    RangeChart(data: statsVM.stats)
+                    RangeChart(statsVM: statsVM)
                     RangeSelection(statsVM: statsVM, fullWidth: geometry.size.width)
                 }
                 .frame(height: 40)
