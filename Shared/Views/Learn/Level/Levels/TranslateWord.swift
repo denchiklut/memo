@@ -8,28 +8,27 @@
 import SwiftUI
 
 struct TranslateWord: View {
-    @State var current = 0
-
-    func onAnswer() {
-        current = current + 1
-    }
-
     var body: some View {
-        PageView(
-            currentPage: $current,
-            pages: words.map {
-                LevelCell(index: $0) {
-                    onAnswer()
+        LevelCell {
+            VStack(spacing: 0) {
+                ForEach(1 ... 4, id: \.self) { index in
+                    Button("Вариант \(index)") {}
+                        .padding()
+                        .frame(width: .infinity)
+                        .border(width: 0.4, edges: [.top], color: Color(.separator))
+                        .tint(.primary)
                 }
             }
-        )
-        .background(Color("BackgroundColor"))
-        .edgesIgnoringSafeArea(.all)
+        }
     }
 }
 
 struct TranslateWord_Previews: PreviewProvider {
     static var previews: some View {
-        TranslateWord()
+        VStack {
+            TranslateWord()
+        }
+        .background(Color("BackgroundColor"))
+        .preferredColorScheme(.dark)
     }
 }

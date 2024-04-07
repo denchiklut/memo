@@ -7,33 +7,23 @@
 
 import SwiftUI
 
-struct LevelCell: View {
-    var index: Int
-    var onAnswer: () -> Void
+struct LevelCell<Content: View>: View {
+    let content: Content
+
+    init(@ViewBuilder content: () -> Content) {
+        self.content = content()
+    }
 
     var body: some View {
         VStack {
             Spacer()
             RoundedRectangle(cornerRadius: 10)
                 .fill(Color("PaperColor"))
-                .overlay(
+                .overlay {
                     VStack {
-                        Spacer()
-                        WordListen()
-                        Spacer()
-                        VStack(spacing: 0) {
-                            ForEach(1 ... 4, id: \.self) { index in
-                                Button("Вариант \(index)") {
-                                    onAnswer()
-                                }
-                                .padding()
-                                .frame(width: getRect().width)
-                                .border(width: 0.4, edges: [.top], color: Color(.separator))
-                                .tint(.primary)
-                            }
-                        }
+                        content
                     }
-                )
+                }
             Spacer()
         }
         .clipped()
@@ -44,6 +34,10 @@ struct LevelCell: View {
 
 struct LevelCell_Previews: PreviewProvider {
     static var previews: some View {
-        LevelCell(index: 0) {}
+        LevelCell {
+            Text("Level Cell")
+        }
+        .background(Color("BackgroundColor"))
+        .preferredColorScheme(.dark)
     }
 }

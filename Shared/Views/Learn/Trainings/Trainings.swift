@@ -22,13 +22,17 @@ struct Trainings: View {
                         Text("Trainings")
                         Spacer()
                     }
-                    HStack {
-                        cell(header: "Word - translation", image: "cube.transparent")
-                        cell(header: "Translation - word", image: "cube.transparent.fill")
-                    }
-                    HStack {
-                        cell(header: "Listening", image: "airpodsmax")
-                        cell(header: "Word - Builder", image: "rectangle.and.pencil.and.ellipsis")
+                    
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
+                        Cell(title: "Word - translation", image: "cube.transparent") {
+                            Level(program: .translate)
+                        }
+                        Cell(title: "Listening", image: "airpodsmax") {
+                            Level(program: .listening)
+                        }
+                        Cell(title: "Word - Builder", image: "rectangle.and.pencil.and.ellipsis") {
+                            Level(program: .wordBuilder)
+                        }
                     }
                 }
                 .padding(.bottom, 100)
@@ -37,12 +41,23 @@ struct Trainings: View {
         }
         .ignoresSafeArea()
     }
+}
 
-    @ViewBuilder
-    func cell(header: String, image: String) -> some View {
-        NavigationLink(destination: Level()) {
+struct Cell<Content: View>: View {
+    let title: String
+    let image: String
+    let content: Content
+
+    init(title: String, image: String, @ViewBuilder content: () -> Content) {
+        self.title = title
+        self.image = image
+        self.content = content()
+    }
+
+    var body: some View {
+        NavigationLink(destination: content) {
             VStack {
-                Text(header)
+                Text(title)
                     .font(.subheadline)
                     .foregroundColor(.primary)
                 Image(systemName: image)

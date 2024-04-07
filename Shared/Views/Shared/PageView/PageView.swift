@@ -23,6 +23,6 @@ struct PageView<Page: View>: View {
 
 struct PageView_Previews: PreviewProvider {
     static var previews: some View {
-        Level()
+        Level(program: .wordBuilder)
     }
 }

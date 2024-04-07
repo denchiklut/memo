@@ -55,11 +55,11 @@ struct StatChart: View {
             .chartXSelection(value: $selected)
             .chartXAxis {
                 AxisMarks(
-                    preset: .automatic,
+                    preset: .aligned,
                     position: .bottom,
-                    values: statsVM.filteredData.count < 5 ? .stride(by: .day) : .automatic
+                    values: statsVM.filteredData.count < 8 ? .stride(by: .day) : .automatic
                 ) {
-                    AxisValueLabel(format: .dateTime.day().month(), centered: statsVM.filteredData.count < 5)
+                    AxisValueLabel(format: .dateTime.day().month(), centered: statsVM.filteredData.count < 8)
                 }
             }
             .chartYAxis {

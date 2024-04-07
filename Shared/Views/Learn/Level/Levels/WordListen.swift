@@ -11,36 +11,34 @@ struct WordListen: View {
     @State var isPlaying = false
 
     var body: some View {
-        ZStack {
+        LevelCell {
+            Spacer()
             Circle()
-                .strokeBorder(.blue)
-                .overlay(
-                    Button(action: {
-                        isPlaying.toggle()
-                    }) {
-                        Text("")
-                            .frame(width: 190, height: 190)
-                            .background(
-                                Circle()
-                                    .foregroundColor(.white)
-                                    .overlay {
-                                        Image(
-                                            systemName: isPlaying ? "pause" : "play.fill"
-                                        )
-                                        .foregroundColor(.blue)
-                                        .font(.system(size: 60))
-                                    }
-                            )
+                .fill(.gray)
+                .frame(width: 250)
+            Spacer()
+            VStack(spacing: 0) {
+                ForEach(1 ... 4, id: \.self) { index in
+                    Divider()
+                    Button(action: {}) {
+                        Text("Вариант \(index)")
+                            .padding()
+                            .tint(.primary)
+                            .frame(width: 400)
+                            .clipped()
                     }
-                )
-                .background(.white, in: Circle())
-                .frame(width: 190, height: 190)
+                }
+            }
         }
     }
 }
 
 struct WordListen_Previews: PreviewProvider {
     static var previews: some View {
-        WordListen()
+        VStack {
+            WordListen()
+        }
+        .background(Color("BackgroundColor"))
+        .preferredColorScheme(.dark)
     }
 }

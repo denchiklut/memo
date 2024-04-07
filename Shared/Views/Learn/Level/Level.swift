@@ -8,18 +8,23 @@
 import SwiftUI
 
 struct Level: View {
+    let program: ProgramType
     @State var current = 0
-
-    func onAnswer() {
-        current = current + 1
-    }
 
     var body: some View {
         PageView(
             currentPage: $current,
-            pages: arr.map {
-                LevelCell(index: $0) {
-                    onAnswer()
+            pages: arr.map { _ in
+                VStack {
+                    if program == .listening {
+                        WordListen()
+                    }
+                    if program == .translate {
+                        TranslateWord()
+                    }
+                    if program == .wordBuilder {
+                        WordBuilder()
+                    }
                 }
             }
         )
@@ -32,6 +37,6 @@ let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 struct Level_Previews: PreviewProvider {
     static var previews: some View {
-        Level()
+        Level(program: .wordBuilder)
     }
 }

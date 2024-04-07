@@ -26,5 +26,7 @@ struct Profile: View {
 struct Profile_Previews: PreviewProvider {
     static var previews: some View {
         Profile()
+            .preferredColorScheme(.dark)
+            .accentColor(.pink)
     }
 }
